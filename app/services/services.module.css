@@ -1,0 +1,140 @@
+.servicesSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+.serviceItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+  padding: var(--spacing-4xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.serviceItem:last-child {
+  border-bottom: none;
+}
+
+.serviceItem.reversed {
+  direction: rtl;
+}
+
+.serviceItem.reversed .serviceContent,
+.serviceItem.reversed .serviceVisual {
+  direction: ltr;
+}
+
+.serviceIcon {
+  display: inline-block;
+  font-size: 3rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.serviceContent h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.serviceDescription {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
+}
+
+.featureList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text-main);
+}
+
+.featureList svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.serviceVisual {
+  aspect-ratio: 4/3;
+  background-color: var(--color-bg-soft);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualIcon {
+  font-size: 8rem;
+  opacity: 0.3;
+}
+
+/* Process Section */
+.processSection {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-bg-soft);
+}
+
+.processSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.processStep {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.stepNumber {
+  display: inline-block;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-lg);
+}
+
+.processStep h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.processStep p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .serviceItem {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .serviceItem.reversed {
+    direction: ltr;
+  }
+
+  .serviceVisual {
+    order: -1;
+    max-height: 300px;
+  }
+
+  .processSteps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .featureList {
+    grid-template-columns: 1fr;
+  }
+
+  .processSteps {
+    grid-template-columns: 1fr;
+  }
+}

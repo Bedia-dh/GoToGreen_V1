@@ -1,0 +1,117 @@
+.contactSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-4xl);
+}
+
+.contactInfo h2,
+.contactFormWrapper h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.contactInfo > p {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.infoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-soft);
+  border-radius: var(--radius-md);
+}
+
+.infoIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.infoCard h4 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xs);
+}
+
+.infoCard p,
+.infoCard a {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.infoCard a:hover {
+  color: var(--color-accent);
+}
+
+.socialSection h4 {
+  margin-bottom: var(--spacing-md);
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.socialLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-soft);
+  color: var(--color-text-main);
+  transition: all var(--transition-base);
+}
+
+.socialLinks a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.contactFormWrapper {
+  background-color: var(--color-bg-soft);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+}
+
+/* Map Section */
+.mapSection {
+  height: 400px;
+  background-color: var(--color-bg-soft);
+}
+
+.mapPlaceholder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+.mapPlaceholder span {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+}

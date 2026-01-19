@@ -1,0 +1,174 @@
+.overviewSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.overviewContent h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.overviewContent p {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+}
+
+.overviewImage {
+  aspect-ratio: 4/3;
+  background-color: var(--color-bg-soft);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder {
+  font-size: 8rem;
+  opacity: 0.3;
+}
+
+.featuresSection {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-bg-soft);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.featureCard {
+  padding: var(--spacing-2xl);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.featureCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.featureCard h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.featureCard p {
+  margin: 0;
+}
+
+.techSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+.techGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+}
+
+.techCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  background-color: var(--color-bg-soft);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.techCard:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.techIcon {
+  font-size: 2.5rem;
+}
+
+.techName {
+  font-weight: var(--font-weight-medium);
+}
+
+.processSection {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-bg-soft);
+}
+
+.processSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.processStep {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+}
+
+.stepNumber {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-full);
+}
+
+.processStep h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.processStep p {
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.faqSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+@media (max-width: 1024px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .overviewImage {
+    order: -1;
+    max-height: 300px;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .processSteps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .featuresGrid,
+  .processSteps {
+    grid-template-columns: 1fr;
+  }
+}
