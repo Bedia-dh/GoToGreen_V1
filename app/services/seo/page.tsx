@@ -1,80 +1,88 @@
 import Link from 'next/link';
 import styles from './service-detail.module.css';
+import Image from 'next/image';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
+import { IconCloud } from '@/components/ui/icon-cloud';
+import { MagicCard } from '@/components/ui/magic-card';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'SEO & Digital Growth | GoToGreen',
-  description: 'Technical SEO, content strategy, and growth optimization to improve visibility and conversions.',
+  title: 'SEO & GEO Optimization | GoToGreen',
+  description: 'Combine traditional SEO with cutting-edge Generative Engine Optimization (GEO) to dominate both search engines and AI-powered discovery platforms.',
 };
 
-const technologies = [
-  { name: 'GA4', icon: '📊' },
-  { name: 'Search Console', icon: '🔎' },
-  { name: 'Core Web Vitals', icon: '⚡' },
-  { name: 'Ahrefs', icon: '🧭' },
-  { name: 'Semrush', icon: '📈' },
-  { name: 'Heatmaps', icon: '🔥' },
+const techImages = [
+  'google',
+  'googleanalytics',
+  'lighthouse',
+  'openai',
+  'vercel',
+  'typescript',
+  'nextjs',
 ];
 
 const features = [
   {
-    title: 'Technical SEO',
-    description: 'Site audits, crawlability, indexation, and performance improvements.',
+    title: 'Generative Engine Optimization (GEO)',
+    description: 'Optimize your content to appear in AI-generated responses from ChatGPT, Perplexity, Google AI, and other generative platforms.',
   },
   {
-    title: 'Content Strategy',
-    description: 'Keyword planning and content that builds authority and relevance.',
+    title: 'Technical SEO',
+    description: 'Site audits, crawlability, indexation, structured data, and Core Web Vitals optimization.',
+  },
+  {
+    title: 'AI-Ready Content Strategy',
+    description: 'Create authoritative, well-structured content that AI engines cite and recommend.',
   },
   {
     title: 'Conversion Optimization',
-    description: 'Improve funnels and user journeys to increase conversions.',
+    description: 'Improve funnels and user journeys to maximize conversions from all traffic sources.',
   },
   {
-    title: 'Analytics & Reporting',
-    description: 'Clear performance dashboards and actionable insights.',
+    title: 'Local & Voice Search',
+    description: 'Location-based visibility and voice search optimization for modern discovery patterns.',
   },
   {
-    title: 'Local SEO',
-    description: 'Location-based visibility for services and retail businesses.',
-  },
-  {
-    title: 'Performance Improvements',
-    description: 'Faster load times to boost rankings and user engagement.',
+    title: 'Analytics & AI Insights',
+    description: 'Track performance across traditional search and AI referrals with actionable dashboards.',
   },
 ];
 
 const faqItems = [
   {
+    question: 'What is GEO (Generative Engine Optimization)?',
+    answer: 'GEO is the practice of optimizing your content to appear in AI-generated responses. As users increasingly rely on ChatGPT, Perplexity, and Google AI Overviews for answers, GEO ensures your brand is cited and recommended by these platforms.',
+  },
+  {
+    question: 'How is GEO different from traditional SEO?',
+    answer: 'While SEO focuses on ranking in search engine results pages, GEO focuses on being referenced by AI models. This requires authoritative content, clear expertise signals, proper structured data, and citation-worthy information that AI can confidently recommend.',
+  },
+  {
     question: 'How long before we see results?',
-    answer: 'SEO is a long-term investment. Most clients see meaningful impact within 8–12 weeks depending on competitiveness.',
-  },
-  {
-    question: 'Do you work with existing websites?',
-    answer: 'Yes. We can audit and optimize existing sites or support a full redesign with SEO baked in.',
-  },
-  {
-    question: 'How do you measure success?',
-    answer: 'We track rankings, traffic quality, conversions, and revenue impact aligned to your KPIs.',
+    answer: 'SEO typically shows impact within 8–12 weeks. GEO results can vary based on how quickly AI models update their training data, but early signals often appear within similar timeframes.',
   },
   {
     question: 'Do you provide ongoing optimization?',
-    answer: 'Yes. We offer monthly growth programs with continuous monitoring and iteration.',
+    answer: 'Yes. We offer monthly growth programs with continuous monitoring, A/B testing, and iteration across both SEO and GEO strategies.',
   },
 ];
 
 export default function SeoPage() {
   return (
     <>
+      <ScrollToTop />
       <PageHeader
-        title="SEO & Digital Growth"
-        description="Increase visibility, traffic, and conversions with a structured growth strategy."
+        title="SEO & GEO Optimization"
+        description="Dominate search engines and AI-powered platforms with our dual optimization strategy for the future of digital discovery."
+        compact
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
-          { label: 'SEO & Digital Growth' },
+          { label: 'SEO & GEO Optimization' },
         ]}
       />
 
@@ -82,23 +90,31 @@ export default function SeoPage() {
         <div className="container">
           <div className={styles.overviewGrid}>
             <div className={styles.overviewContent}>
-              <h2>Drive Consistent, Measurable Growth</h2>
+              <h2>The Future of Digital Visibility</h2>
               <p>
-                We combine technical SEO, content strategy, and conversion optimization to help
-                your business grow sustainably. Our approach focuses on visibility, performance,
-                and user experience.
+                Traditional SEO is no longer enough. With AI-powered search engines and generative 
+                platforms reshaping how users find information, your business needs a dual strategy: 
+                <strong> SEO + GEO</strong>.
               </p>
               <p>
-                From audits to ongoing optimization, we deliver clear insights and measurable
-                outcomes across your digital channels.
+                <strong>Generative Engine Optimization (GEO)</strong> ensures your brand appears when 
+                users ask ChatGPT, Perplexity, Google AI Overviews, or other AI assistants for recommendations. 
+                Combined with proven SEO techniques, we position your business at the forefront of digital discovery.
               </p>
-              <Link href="/contact" className="btn btn-primary">
-                Improve Your Growth
-              </Link>
+              <InteractiveHoverButton href="/contact" className="btn btn-primary">
+                Future-Proof Your Visibility
+              </InteractiveHoverButton>
             </div>
-            <div className={styles.overviewImage}>
-              <span className={styles.imagePlaceholder}>📈</span>
-            </div>
+              <div className={styles.missionImage}>
+                <Image
+                  src="/images/services_images/geo.jpeg"
+                  alt="Our Mission"
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+              </div>
+
           </div>
         </div>
       </section>
@@ -106,32 +122,15 @@ export default function SeoPage() {
       <section className={styles.featuresSection}>
         <div className="container">
           <div className="section-header">
-            <h2>What We Offer</h2>
-            <p>Growth services focused on performance and ROI</p>
+            <h2>Our SEO & GEO Services</h2>
+            <p>Comprehensive optimization for search engines and AI platforms</p>
           </div>
           <div className={styles.featuresGrid}>
             {features.map((feature) => (
-              <div key={feature.title} className={styles.featureCard}>
+              <MagicCard key={feature.title} className={styles.featureCard}>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.techSection}>
-        <div className="container">
-          <div className="section-header">
-            <h2>Tools & Platforms</h2>
-            <p>Analytics and optimization stack</p>
-          </div>
-          <div className={styles.techGrid}>
-            {technologies.map((tech) => (
-              <div key={tech.name} className={styles.techCard}>
-                <span className={styles.techIcon}>{tech.icon}</span>
-                <span className={styles.techName}>{tech.name}</span>
-              </div>
+              </MagicCard>
             ))}
           </div>
         </div>
@@ -140,30 +139,30 @@ export default function SeoPage() {
       <section className={styles.processSection}>
         <div className="container">
           <div className="section-header">
-            <h2>Our Delivery Process</h2>
-            <p>Evidence-based optimization and iteration</p>
+            <h2>Our Optimization Process</h2>
+            <p>Data-driven strategy for search and AI visibility</p>
           </div>
           <div className={styles.processSteps}>
-            <div className={styles.processStep}>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>1</div>
-              <h3>Audit</h3>
-              <p>Technical and content analysis to identify opportunities.</p>
-            </div>
-            <div className={styles.processStep}>
+              <h3>Discovery Audit</h3>
+              <p>Analyze your presence across search engines and AI platforms.</p>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>2</div>
-              <h3>Plan</h3>
-              <p>Keyword and content strategy aligned to business goals.</p>
-            </div>
-            <div className={styles.processStep}>
+              <h3>Dual Strategy</h3>
+              <p>Develop SEO + GEO roadmap tailored to your industry.</p>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>3</div>
-              <h3>Optimize</h3>
-              <p>On-page, technical, and performance improvements.</p>
-            </div>
-            <div className={styles.processStep}>
+              <h3>Implementation</h3>
+              <p>Optimize content for both traditional search and AI citations.</p>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>4</div>
-              <h3>Measure</h3>
-              <p>Track outcomes and iterate for continuous gains.</p>
-            </div>
+              <h3>AI Monitoring</h3>
+              <p>Track rankings and AI responses for continuous refinement.</p>
+            </MagicCard>
           </div>
         </div>
       </section>
@@ -172,17 +171,17 @@ export default function SeoPage() {
         <div className="container">
           <div className="section-header">
             <h2>Frequently Asked Questions</h2>
-            <p>Common questions about SEO and growth</p>
+            <p>Learn about SEO, GEO, and the future of digital discovery</p>
           </div>
           <FAQ items={faqItems} />
         </div>
       </section>
 
       <CTABanner
-        title="Want to Grow Faster?"
-        description="Let’s build a strategy that drives consistent growth."
-        primaryCta={{ text: 'Start a Project', href: '/contact' }}
-        secondaryCta={{ text: 'View Services', href: '/services' }}
+        title="Ready for the AI Search Era?"
+        description="Get found by both Google and AI assistants. Future-proof your digital presence today."
+        primaryCta={{ text: 'Get SEO & GEO Strategy', href: '/contact' }}
+        secondaryCta={{ text: 'View All Services', href: '/services' }}
       />
     </>
   );

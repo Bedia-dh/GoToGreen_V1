@@ -7,11 +7,12 @@ interface PageHeaderProps {
     label: string;
     href?: string;
   }[];
+  compact?: boolean;
 }
 
-export default function PageHeader({ title, description, breadcrumbs }: PageHeaderProps) {
+export default function PageHeader({ title, description, breadcrumbs, compact }: PageHeaderProps) {
   return (
-    <section className={styles.header}>
+    <section className={`${styles.header} ${compact ? styles.compact : ''}`}>
       <div className="container">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav className={styles.breadcrumbs} aria-label="Breadcrumb">

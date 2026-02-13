@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './Stats.module.css';
+import { NumberTicker } from '@/components/ui/number-ticker';
 
 interface Stat {
   value: string;
@@ -56,7 +57,14 @@ export default function Stats({ stats }: StatsProps) {
           className={`${styles.stat} ${visible[index] ? styles.visible : ''}`}
         >
           <span className={`${styles.value} ${visible[index] ? styles.underline : ''}`}>
-            {stat.value}
+            {visible[index] ? (
+              <NumberTicker 
+                value={parseInt(stat.value)} 
+                className={styles.tickerValue}
+              />
+            ) : (
+              stat.value
+            )}
             {stat.suffix && <span className={styles.suffix}>{stat.suffix}</span>}
           </span>
           <span className={styles.label}>{stat.label}</span>

@@ -41,6 +41,15 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.errorMessage {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: #fdecea;
+  border-radius: var(--radius-sm);
+}
+
 @media (max-width: 768px) {
   .row {
     grid-template-columns: 1fr;

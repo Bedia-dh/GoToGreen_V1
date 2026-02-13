@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './service-detail.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
+import { IconCloud } from '@/components/ui/icon-cloud';
+import { MagicCard } from '@/components/ui/magic-card';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,13 +15,13 @@ export const metadata: Metadata = {
   description: 'Custom web applications and websites built with modern technologies for performance, scalability, and exceptional user experience.',
 };
 
-const technologies = [
-  { name: 'React', icon: '⚛️' },
-  { name: 'Next.js', icon: '▲' },
-  { name: 'Node.js', icon: '🟢' },
-  { name: 'TypeScript', icon: '📘' },
-  { name: 'PostgreSQL', icon: '🐘' },
-  { name: 'MongoDB', icon: '🍃' },
+const techImages = [
+  'react',
+  'nextjs',
+  'nodejs',
+  'typescript',
+  'postgresql',
+  'mongodb',
 ];
 
 const features = [
@@ -68,9 +73,11 @@ const faqItems = [
 export default function WebDevelopmentPage() {
   return (
     <>
+      <ScrollToTop />
       <PageHeader
         title="Web Development"
         description="Custom web applications built with modern technologies for performance, scalability, and exceptional user experience."
+        compact
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
@@ -96,13 +103,19 @@ export default function WebDevelopmentPage() {
                 simple websites to complex enterprise applications, we have the 
                 skills and experience to bring your vision to life.
               </p>
-              <Link href="/contact" className="btn btn-primary">
+              <InteractiveHoverButton href="/contact" className="btn btn-primary">
                 Start Your Project
-              </Link>
+              </InteractiveHoverButton>
             </div>
-            <div className={styles.overviewImage}>
-              <span className={styles.imagePlaceholder}>💻</span>
-            </div>
+              <div className={styles.missionImage}>
+                <Image
+                  src="/images/services_images/web_dev1.png"
+                  alt="Our Mission"
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+              </div>
           </div>
         </div>
       </section>
@@ -116,28 +129,10 @@ export default function WebDevelopmentPage() {
           </div>
           <div className={styles.featuresGrid}>
             {features.map((feature) => (
-              <div key={feature.title} className={styles.featureCard}>
+              <MagicCard key={feature.title} className={styles.featureCard}>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technologies Section */}
-      <section className={styles.techSection}>
-        <div className="container">
-          <div className="section-header">
-            <h2>Technologies We Use</h2>
-            <p>Modern tools and frameworks for robust solutions</p>
-          </div>
-          <div className={styles.techGrid}>
-            {technologies.map((tech) => (
-              <div key={tech.name} className={styles.techCard}>
-                <span className={styles.techIcon}>{tech.icon}</span>
-                <span className={styles.techName}>{tech.name}</span>
-              </div>
+              </MagicCard>
             ))}
           </div>
         </div>
@@ -151,26 +146,26 @@ export default function WebDevelopmentPage() {
             <p>A structured approach to delivering successful projects</p>
           </div>
           <div className={styles.processSteps}>
-            <div className={styles.processStep}>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>1</div>
               <h3>Discovery & Planning</h3>
               <p>We analyze your requirements, define project scope, and create a detailed roadmap.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>2</div>
               <h3>Design & Prototyping</h3>
               <p>Creating wireframes and interactive prototypes to visualize the final product.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>3</div>
               <h3>Development</h3>
               <p>Agile development with regular sprints, testing, and client feedback loops.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>4</div>
               <h3>Launch & Support</h3>
               <p>Thorough QA, deployment, and ongoing maintenance for lasting success.</p>
-            </div>
+            </MagicCard>
           </div>
         </div>
       </section>

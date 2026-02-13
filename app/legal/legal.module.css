@@ -1,0 +1,122 @@
+/* Shared styles for all legal pages (Terms, Privacy, Legal Notice) */
+
+.legalPage {
+  padding: var(--spacing-4xl) 0;
+}
+
+.legalContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legalContent h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.legalContent h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-main);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.legalContent p {
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.legalContent p strong {
+  color: var(--color-text-main);
+  font-weight: var(--font-weight-semibold);
+}
+
+.legalContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.legalContent ul li {
+  position: relative;
+  padding-left: var(--spacing-xl);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.legalContent ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+
+.legalContent a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.legalContent a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.infoBlock {
+  background-color: var(--color-bg-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  border-left: 4px solid var(--color-accent);
+}
+
+.infoBlock p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.infoBlock p:last-child {
+  margin-bottom: 0;
+}
+
+.lastUpdated {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+  .legalPage {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .legalContent {
+    padding: 0 var(--spacing-md);
+  }
+
+  .legalContent h2 {
+    font-size: var(--font-size-xl);
+    margin-top: var(--spacing-xl);
+  }
+
+  .infoBlock {
+    padding: var(--spacing-lg);
+  }
+}

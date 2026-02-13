@@ -27,7 +27,7 @@
 }
 
 .missionImage {
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 2;
   background-color: var(--color-bg-soft);
   border-radius: var(--radius-lg);
   display: flex;
@@ -35,20 +35,26 @@
   justify-content: center;
 }
 
-.imagePlaceholder {
-  font-size: 8rem;
-  opacity: 0.5;
-}
+
 
 /* Stats Section */
 .statsSection {
   padding: var(--spacing-4xl) 0;
-  background-color: var(--color-bg-soft);
+  background-color:var(--color-primary);
 }
 
 /* Values Section */
 .valuesSection {
   padding: var(--spacing-4xl) 0;
+}
+.techSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+/* Programs & Partnerships Section */
+.programsSection {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-bg-soft);
 }
 
 .valuesGrid {

@@ -19,6 +19,7 @@ export default function ClientLogos({ clients, title }: ClientLogosProps) {
           {[...clients, ...clients].map((client, index) => (
             <div key={`${client.name}-${index}`} className={styles.logo}>
               {client.logo ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
                 <img src={client.logo} alt={client.name} />
               ) : (
                 <span className={styles.placeholder}>{client.name}</span>

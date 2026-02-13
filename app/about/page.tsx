@@ -1,43 +1,59 @@
 import styles from './about.module.css';
 import PageHeader from '@/components/PageHeader';
 import Stats from '@/components/Stats';
+import ProgramsMarquee from '@/components/ProgramsMarquee/ProgramsMarquee';
 import CTABanner from '@/components/CTABanner';
+import Image from 'next/image';
 import type { Metadata } from 'next';
+import { IconCloud } from '@/components/ui/icon-cloud';
+import ScrollToTop from '@/components/ScrollToTop';
 
 export const metadata: Metadata = {
   title: 'About Us | GoToGreen',
   description: 'Learn about GoToGreen - a technology company delivering innovative solutions with a commitment to efficiency and responsible engineering.',
 };
 
-const stats = [
-  { value: '150', suffix: '+', label: 'Projects Delivered' },
-  { value: '50', suffix: '+', label: 'Happy Clients' },
-  { value: '15', suffix: '+', label: 'Years Experience' },
-  { value: '25', suffix: '+', label: 'Team Members' },
+const techImages = [
+  'python',
+  'tensorflow',
+  'pytorch',
+  'openai',
+  'azure',
+  'docker',
+  'react',
+  'nextjs',
+  'nodejs',
+  'typescript',
+  'postgresql',
+  'mongodb',
+  'react',
+  'aws',
+  'python',
+  'flutter',
+  'git',
+  'docker',
+  'google',
+  'googleanalytics',
+  'lighthouse',
+  'vercel',
+  'typescript',
+  'nextjs',
+  'react',
+  'flutter',
+  'swift',
+  'kotlin',
+  'firebase',
+  'android',
+
 ];
 
-const values = [
-  {
-    icon: '🎯',
-    title: 'Excellence',
-    description: 'We strive for excellence in every line of code, every design decision, and every client interaction.',
-  },
-  {
-    icon: '🤝',
-    title: 'Partnership',
-    description: 'We work as an extension of your team, aligned with your goals and invested in your success.',
-  },
-  {
-    icon: '💡',
-    title: 'Innovation',
-    description: 'We embrace new technologies and approaches to deliver cutting-edge solutions.',
-  },
-  {
-    icon: '⚡',
-    title: 'Efficiency',
-    description: 'We build solutions that optimize performance and resources for long-term sustainability.',
-  },
+const stats = [
+  { value: '12', suffix: '+', label: 'Projects Delivered' },
+  { value: '20', suffix: '+', label: 'Years Combined Experience' },
+  { value: '99', suffix: '%', label: 'Client Satisfaction' },
+  { value: '3', suffix: '', label: 'Active R&D Tracks' },
 ];
+
 
 const team = [
   {
@@ -96,8 +112,14 @@ export default function AboutPage() {
                 make a real difference.
               </p>
             </div>
-            <div className={styles.missionImage}>
-              <span className={styles.imagePlaceholder}>🌱</span>
+            <div className={styles.serviecImage}>
+              <Image
+                src="/images/about/mission.webp"
+                alt="Our Mission"
+                width={600}
+                height={400}
+                className={styles.image}
+              />
             </div>
           </div>
         </div>
@@ -110,46 +132,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className={styles.valuesSection}>
+      {/* Technologies used */}
+      <section className={styles.techSection}>
         <div className="container">
           <div className="section-header">
-            <h2>Our Values</h2>
-            <p>The principles that guide everything we do</p>
+            <h2>Technologies We Use</h2>
+            <p>Modern ML tooling with production-grade practices</p>
           </div>
-          <div className={styles.valuesGrid}>
-            {values.map((value) => (
-              <div key={value.title} className={styles.valueCard}>
-                <span className={styles.valueIcon}>{value.icon}</span>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-              </div>
-            ))}
+          <div className="relative overflow-hidden">
+            <IconCloud images={techImages} />
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className={styles.teamSection}>
+      {/* Programs & Partnerships Section */}
+      <section className={styles.programsSection}>
         <div className="container">
           <div className="section-header">
-            <h2>Leadership Team</h2>
-            <p>Meet the people driving our vision forward</p>
+            <h2>Trusted Partner Programs</h2>
+            <p>Certified and recognized by industry-leading technology providers</p>
           </div>
-          <div className={styles.teamGrid}>
-            {team.map((member) => (
-              <div key={member.name} className={styles.teamCard}>
-                <div className={styles.teamAvatar}>
-                  <span>{member.name.charAt(0)}</span>
-                </div>
-                <h3>{member.name}</h3>
-                <p className={styles.teamRole}>{member.role}</p>
-                <p className={styles.teamBio}>{member.bio}</p>
-              </div>
-            ))}
-          </div>
+          <ProgramsMarquee />
         </div>
-      </section>
+      </section>          
+
+
 
       {/* Why Choose Us Section */}
       <section className={styles.whySection}>
@@ -184,6 +191,8 @@ export default function AboutPage() {
         primaryCta={{ text: 'Contact Us', href: '/contact' }}
         secondaryCta={{ text: 'View Our Work', href: '/case-studies' }}
       />
+
+      <ScrollToTop />
     </>
   );
 }

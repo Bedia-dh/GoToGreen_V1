@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './CTABanner.module.css';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 
 interface CTABannerProps {
   title: string;
@@ -30,12 +31,12 @@ export default function CTABanner({
           {description && <p className={styles.description}>{description}</p>}
         </div>
         <div className={styles.actions}>
-          <Link 
+          <InteractiveHoverButton
             href={primaryCta.href} 
             className={`btn ${variant === 'primary' ? 'btn-white' : 'btn-primary'} btn-lg`}
           >
             {primaryCta.text}
-          </Link>
+          </InteractiveHoverButton>
           {secondaryCta && (
             <Link 
               href={secondaryCta.href} 

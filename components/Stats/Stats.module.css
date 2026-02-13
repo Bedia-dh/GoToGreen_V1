@@ -6,7 +6,7 @@
 
 .stat {
   text-align: center;
-  padding: var(--spacing-xl);
+  padding: var(--spacing-xs);
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -26,6 +26,10 @@
   margin-bottom: var(--spacing-sm);
   position: relative;
   padding-bottom: 6px;
+}
+
+.tickerValue {
+  display: inline;
 }
 
 .suffix {
@@ -49,12 +53,20 @@
 .stat.visible .underline::after {
   transform: scaleX(1);
 }
+.stat:hover {
+  transform: scaleY(1.1);
+}
+
 
 .label {
   display: block;
   color: var(--color-text-secondary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
+}
+.label:hover {
+  color: white;
+   transition: transform 0.5s ease 0.1s;
 }
 
 @media (max-width: 1024px) {

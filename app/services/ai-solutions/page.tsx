@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './service-detail.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
+import { IconCloud } from '@/components/ui/icon-cloud';
+import { MagicCard } from '@/components/ui/magic-card';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,13 +15,13 @@ export const metadata: Metadata = {
   description: 'Applied AI solutions to automate workflows, generate insights, and improve decision-making at scale.',
 };
 
-const technologies = [
-  { name: 'Python', icon: '🐍' },
-  { name: 'TensorFlow', icon: '🧠' },
-  { name: 'PyTorch', icon: '🔥' },
-  { name: 'OpenAI', icon: '✨' },
-  { name: 'Azure AI', icon: '☁️' },
-  { name: 'MLOps', icon: '⚙️' },
+const techImages = [
+  'python',
+  'tensorflow',
+  'pytorch',
+  'openai',
+  'azure',
+  'docker',
 ];
 
 const features = [
@@ -68,9 +73,11 @@ const faqItems = [
 export default function AiSolutionsPage() {
   return (
     <>
+      <ScrollToTop />
       <PageHeader
         title="AI Solutions"
         description="Automation and intelligence that drive efficiency and better decisions."
+        compact
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
@@ -91,13 +98,19 @@ export default function AiSolutionsPage() {
                 From discovery to deployment, we deliver scalable AI systems with monitoring,
                 governance, and continuous improvement.
               </p>
-              <Link href="/contact" className="btn btn-primary">
+              <InteractiveHoverButton href="/contact" className="btn btn-primary">
                 Explore AI Use Cases
-              </Link>
+              </InteractiveHoverButton>
             </div>
-            <div className={styles.overviewImage}>
-              <span className={styles.imagePlaceholder}>🤖</span>
-            </div>
+              <div className={styles.missionImage}>
+                <Image
+                  src="/images/services_images/ai_1.png"
+                  alt="Our Mission"
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+              </div>
           </div>
         </div>
       </section>
@@ -110,27 +123,10 @@ export default function AiSolutionsPage() {
           </div>
           <div className={styles.featuresGrid}>
             {features.map((feature) => (
-              <div key={feature.title} className={styles.featureCard}>
+              <MagicCard key={feature.title} className={styles.featureCard}>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.techSection}>
-        <div className="container">
-          <div className="section-header">
-            <h2>Technologies We Use</h2>
-            <p>Modern ML tooling with production-grade practices</p>
-          </div>
-          <div className={styles.techGrid}>
-            {technologies.map((tech) => (
-              <div key={tech.name} className={styles.techCard}>
-                <span className={styles.techIcon}>{tech.icon}</span>
-                <span className={styles.techName}>{tech.name}</span>
-              </div>
+              </MagicCard>
             ))}
           </div>
         </div>
@@ -143,26 +139,26 @@ export default function AiSolutionsPage() {
             <p>From data readiness to production deployment</p>
           </div>
           <div className={styles.processSteps}>
-            <div className={styles.processStep}>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>1</div>
               <h3>Discovery</h3>
               <p>Define outcomes, assess data, and validate feasibility.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>2</div>
               <h3>Prototype</h3>
               <p>Build quick experiments to prove value and accuracy.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>3</div>
               <h3>Production</h3>
               <p>Deploy scalable pipelines and model services.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>4</div>
               <h3>Optimize</h3>
               <p>Monitor, retrain, and iterate for long-term success.</p>
-            </div>
+            </MagicCard>
           </div>
         </div>
       </section>

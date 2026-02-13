@@ -48,6 +48,7 @@ export default function BlogCard({
           <div className={styles.author}>
             <div className={styles.avatar}>
               {author.avatar ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
                 <img src={author.avatar} alt={author.name} />
               ) : (
                 <span>{author.name.charAt(0)}</span>

@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './service-detail.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
+import { IconCloud } from '@/components/ui/icon-cloud';
+import { MagicCard } from '@/components/ui/magic-card';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,13 +15,13 @@ export const metadata: Metadata = {
   description: 'Cloud infrastructure, automation, and CI/CD pipelines to deliver reliable and secure systems at scale.',
 };
 
-const technologies = [
-  { name: 'AWS', icon: '☁️' },
-  { name: 'Azure', icon: '🔷' },
-  { name: 'Docker', icon: '🐳' },
-  { name: 'Kubernetes', icon: '☸️' },
-  { name: 'Terraform', icon: '🏗️' },
-  { name: 'GitHub Actions', icon: '✅' },
+const techImages = [
+  'aws',
+  'azure',
+  'docker',
+  'kubernetes',
+  'terraform',
+  'github',
 ];
 
 const features = [
@@ -68,9 +73,11 @@ const faqItems = [
 export default function DevOpsPage() {
   return (
     <>
+      <ScrollToTop />
       <PageHeader
         title="DevOps & Infrastructure"
         description="Automated delivery pipelines and resilient cloud infrastructure."
+        compact
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
@@ -91,13 +98,19 @@ export default function DevOpsPage() {
                 Our DevOps practices improve deployment confidence, reduce downtime, and provide
                 clear visibility across your systems.
               </p>
-              <Link href="/contact" className="btn btn-primary">
+              <InteractiveHoverButton href="/contact" className="btn btn-primary">
                 Optimize Your Stack
-              </Link>
+              </InteractiveHoverButton>
             </div>
-            <div className={styles.overviewImage}>
-              <span className={styles.imagePlaceholder}>⚙️</span>
-            </div>
+              <div className={styles.missionImage}>
+                <Image
+                  src="/images/services_images/devops_1.png"
+                  alt="Our Mission"
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+              </div>
           </div>
         </div>
       </section>
@@ -110,31 +123,15 @@ export default function DevOpsPage() {
           </div>
           <div className={styles.featuresGrid}>
             {features.map((feature) => (
-              <div key={feature.title} className={styles.featureCard}>
+              <MagicCard key={feature.title} className={styles.featureCard}>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-              </div>
+              </MagicCard>
             ))}
           </div>
         </div>
       </section>
 
-      <section className={styles.techSection}>
-        <div className="container">
-          <div className="section-header">
-            <h2>Technologies We Use</h2>
-            <p>Industry-standard tooling for modern cloud platforms</p>
-          </div>
-          <div className={styles.techGrid}>
-            {technologies.map((tech) => (
-              <div key={tech.name} className={styles.techCard}>
-                <span className={styles.techIcon}>{tech.icon}</span>
-                <span className={styles.techName}>{tech.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className={styles.processSection}>
         <div className="container">
@@ -143,26 +140,26 @@ export default function DevOpsPage() {
             <p>Structured implementation with minimal risk</p>
           </div>
           <div className={styles.processSteps}>
-            <div className={styles.processStep}>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>1</div>
               <h3>Assessment</h3>
               <p>Review current infrastructure and deployment flow.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>2</div>
               <h3>Design</h3>
               <p>Define architecture and automation requirements.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>3</div>
               <h3>Implementation</h3>
               <p>Build pipelines and IaC with security best practices.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>4</div>
               <h3>Operate</h3>
               <p>Monitoring, optimization, and continuous improvements.</p>
-            </div>
+            </MagicCard>
           </div>
         </div>
       </section>

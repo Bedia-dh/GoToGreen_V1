@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './service-detail.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
+import { IconCloud } from '@/components/ui/icon-cloud';
+import { MagicCard } from '@/components/ui/magic-card';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,13 +15,13 @@ export const metadata: Metadata = {
   description: 'Native and cross-platform mobile apps designed for performance, engagement, and scale across iOS and Android.',
 };
 
-const technologies = [
-  { name: 'React Native', icon: '⚛️' },
-  { name: 'Flutter', icon: '🦋' },
-  { name: 'Swift', icon: '🍏' },
-  { name: 'Kotlin', icon: '🤖' },
-  { name: 'Firebase', icon: '🔥' },
-  { name: 'App Store & Play', icon: '📲' },
+const techImages = [
+  'react',
+  'flutter',
+  'swift',
+  'kotlin',
+  'firebase',
+  'android',
 ];
 
 const features = [
@@ -68,9 +73,11 @@ const faqItems = [
 export default function MobileAppsPage() {
   return (
     <>
+      <ScrollToTop />
       <PageHeader
         title="Mobile App Development"
         description="Native and cross-platform apps engineered for performance and customer engagement."
+        compact
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
@@ -92,13 +99,19 @@ export default function MobileAppsPage() {
                 Our delivery includes UX/UI design, development, integrations, testing, and launch
                 support so your app reaches the market with confidence.
               </p>
-              <Link href="/contact" className="btn btn-primary">
+              <InteractiveHoverButton href="/contact" className="btn btn-primary">
                 Start Your App
-              </Link>
+              </InteractiveHoverButton>
             </div>
-            <div className={styles.overviewImage}>
-              <span className={styles.imagePlaceholder}>📱</span>
-            </div>
+              <div className={styles.missionImage}>
+                <Image
+                  src="/images/services_images/mobile_1.png"
+                  alt="Our Mission"
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+              </div>
           </div>
         </div>
       </section>
@@ -111,27 +124,10 @@ export default function MobileAppsPage() {
           </div>
           <div className={styles.featuresGrid}>
             {features.map((feature) => (
-              <div key={feature.title} className={styles.featureCard}>
+              <MagicCard key={feature.title} className={styles.featureCard}>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.techSection}>
-        <div className="container">
-          <div className="section-header">
-            <h2>Technologies We Use</h2>
-            <p>Modern tools for reliable and secure mobile applications</p>
-          </div>
-          <div className={styles.techGrid}>
-            {technologies.map((tech) => (
-              <div key={tech.name} className={styles.techCard}>
-                <span className={styles.techIcon}>{tech.icon}</span>
-                <span className={styles.techName}>{tech.name}</span>
-              </div>
+              </MagicCard>
             ))}
           </div>
         </div>
@@ -144,26 +140,26 @@ export default function MobileAppsPage() {
             <p>Clear milestones and transparent delivery</p>
           </div>
           <div className={styles.processSteps}>
-            <div className={styles.processStep}>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>1</div>
               <h3>Discovery</h3>
               <p>Define goals, users, and technical requirements.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>2</div>
               <h3>Design</h3>
               <p>Prototype key flows and validate UI/UX decisions.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>3</div>
               <h3>Build</h3>
               <p>Agile development with continuous QA and testing.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>4</div>
               <h3>Launch</h3>
               <p>App store release, monitoring, and iteration.</p>
-            </div>
+            </MagicCard>
           </div>
         </div>
       </section>

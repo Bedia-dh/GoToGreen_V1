@@ -4,6 +4,11 @@
 
 .banner.primary {
   background-color: var(--color-primary);
+  margin-bottom: var(--spacing-2xl);
+  border-radius: var(--radius-xl);
+  margin-left: var(--spacing-xl);
+  margin-right: var(--spacing-xl);
+  box-shadow: 0 10px 40px rgba(15, 61, 35, 0.3);
 }
 
 .banner.accent {
@@ -62,9 +67,20 @@
 }
 
 @media (max-width: 768px) {
+  .banner.primary {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl) 0;
+  }
+
   .content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
   }
 
   .actions {
@@ -74,5 +90,12 @@
 
   .actions .btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner.primary {
+    margin-left: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
   }
 }

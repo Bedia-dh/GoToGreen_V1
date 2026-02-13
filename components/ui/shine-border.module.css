@@ -1,0 +1,45 @@
+.shineBorder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius, 12px);
+  padding: var(--border-width, 2px);
+  background: linear-gradient(90deg, transparent, var(--shine-color), transparent);
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
+}
+
+.shineEffect {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius, 12px);
+  padding: var(--border-width, 2px);
+  background: linear-gradient(90deg, transparent, var(--shine-color), transparent);
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg, #ffffff);
+  border-radius: calc(var(--border-radius, 12px) - var(--border-width, 2px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

@@ -1,0 +1,123 @@
+.marqueeContainer {
+  position: relative;
+  display: flex;
+  height: 500px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: var(--spacing-lg);
+}
+
+.marqueeColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  animation: marqueeVertical 20s linear infinite;
+}
+
+.marqueeColumn.reverse {
+  animation-direction: reverse;
+}
+
+.marqueeColumn:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeVertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.logoCard {
+  width: 180px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+}
+
+.logoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-accent);
+}
+
+.logoWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.logoCard:hover .logo {
+  transform: scale(1.05);
+}
+
+.gradientTop {
+  pointer-events: none;
+  position: absolute;
+  inset-left: 0;
+  inset-right: 0;
+  top: 0;
+  height: 25%;
+  background: linear-gradient(to bottom, var(--color-bg), transparent);
+  z-index: 10;
+}
+
+.gradientBottom {
+  pointer-events: none;
+  position: absolute;
+  inset-left: 0;
+  inset-right: 0;
+  bottom: 0;
+  height: 25%;
+  background: linear-gradient(to top, var(--color-bg), transparent);
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .marqueeContainer {
+    gap: var(--spacing-md);
+  }
+
+  .logoCard {
+    width: 150px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeContainer {
+    height: 400px;
+    gap: var(--spacing-sm);
+  }
+
+  .logoCard {
+    width: 120px;
+    height: 90px;
+    padding: var(--spacing-md);
+  }
+
+  .logoText {
+    font-size: var(--font-size-base);
+  }
+}

@@ -24,12 +24,6 @@
   direction: ltr;
 }
 
-.serviceIcon {
-  display: inline-block;
-  font-size: 3rem;
-  margin-bottom: var(--spacing-lg);
-}
-
 .serviceContent h2 {
   margin-bottom: var(--spacing-lg);
 }
@@ -61,17 +55,15 @@
 }
 
 .serviceVisual {
+  position: relative;
   aspect-ratio: 4/3;
   background-color: var(--color-bg-soft);
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
-.visualIcon {
-  font-size: 8rem;
-  opacity: 0.3;
+.serviceImage {
+  object-fit: cover;
 }
 
 /* Process Section */

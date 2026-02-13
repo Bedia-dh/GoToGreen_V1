@@ -1,7 +1,27 @@
 import styles from './contact.module.css';
 import PageHeader from '@/components/PageHeader';
 import ContactForm from '@/components/ContactForm';
+import ScrollToTop from '@/components/ScrollToTop';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+
 import type { Metadata } from 'next';
+
+function MapEmbed() {
+  const mapSrc =
+    "https://www.google.com/maps?q=Immeuble+Alya+M%C3%A9dicale,+rue+des+Olivier,+4001+Khzema,+Sousse&output=embed";
+  
+  return (
+    <iframe
+      src={mapSrc}
+      className={styles.mapFrame}
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      title="GoToGreen Location"
+    />
+  );
+}
 
 export const metadata: Metadata = {
   title: 'Contact Us | GoToGreen',
@@ -32,31 +52,31 @@ export default function ContactPage() {
 
               <div className={styles.infoCards}>
                 <div className={styles.infoCard}>
-                  <span className={styles.infoIcon}>📧</span>
+                  <span className={styles.infoIcon}><Mail size={24} /></span>
                   <div>
                     <h4>Email</h4>
-                    <a href="mailto:hello@gotogreen.tech">hello@gotogreen.tech</a>
+                    <a href="mailto:contact@gotoogreen.tn">contact@gotoogreen.tn</a>
                   </div>
                 </div>
 
                 <div className={styles.infoCard}>
-                  <span className={styles.infoIcon}>📞</span>
+                  <span className={styles.infoIcon}><Phone size={24} /></span>
                   <div>
                     <h4>Phone</h4>
-                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    <a href="tel:+216 52 373 375">+216 52 373 375</a>
                   </div>
                 </div>
 
                 <div className={styles.infoCard}>
-                  <span className={styles.infoIcon}>📍</span>
+                  <span className={styles.infoIcon}><MapPin size={24} /></span>
                   <div>
                     <h4>Location</h4>
-                    <p>Tech District, Innovation City</p>
+                    <p>Immeuble Alya Médicale, rue des Olivier · 4001 Khzema, Sousse</p>
                   </div>
                 </div>
 
                 <div className={styles.infoCard}>
-                  <span className={styles.infoIcon}>🕐</span>
+                  <span className={styles.infoIcon}><Clock size={24} /></span>
                   <div>
                     <h4>Business Hours</h4>
                     <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
@@ -94,13 +114,12 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section Placeholder */}
+      {/* Map Section */}
       <section className={styles.mapSection}>
-        <div className={styles.mapPlaceholder}>
-          <span>📍</span>
-          <p>Map Integration Placeholder</p>
-        </div>
+        <MapEmbed />
       </section>
+
+      <ScrollToTop />
     </>
   );
 }

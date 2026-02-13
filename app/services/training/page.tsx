@@ -1,8 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './service-detail.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
+import { MagicCard } from '@/components/ui/magic-card';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,13 +14,13 @@ export const metadata: Metadata = {
   description: 'Tailored training programs that upskill teams in modern engineering, cloud, and AI practices.',
 };
 
-const technologies = [
-  { name: 'Web & Frontend', icon: '🧩' },
-  { name: 'Cloud & DevOps', icon: '☁️' },
-  { name: 'Data & AI', icon: '📊' },
-  { name: 'Mobile', icon: '📱' },
-  { name: 'Security', icon: '🛡️' },
-  { name: 'Product Delivery', icon: '🚀' },
+const techImages = [
+  'react',
+  'aws',
+  'python',
+  'flutter',
+  'git',
+  'docker',
 ];
 
 const features = [
@@ -68,9 +72,11 @@ const faqItems = [
 export default function TrainingPage() {
   return (
     <>
+      <ScrollToTop />
       <PageHeader
         title="Training & Capacity Building"
         description="Upskill teams with structured programs built for measurable outcomes."
+        compact
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
@@ -92,13 +98,19 @@ export default function TrainingPage() {
                 Whether you’re adopting new technologies or improving delivery practices, we
                 help your team level up with measurable impact.
               </p>
-              <Link href="/contact" className="btn btn-primary">
-                Plan Training
-              </Link>
+              <InteractiveHoverButton href="/contact" className="btn btn-primary">
+                Plan Your Training
+              </InteractiveHoverButton>
             </div>
-            <div className={styles.overviewImage}>
-              <span className={styles.imagePlaceholder}>🎓</span>
-            </div>
+              <div className={styles.missionImage}>
+                <Image
+                  src="/images/services_images/training_1.png"
+                  alt="Our taraining mission"
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+              </div>
           </div>
         </div>
       </section>
@@ -111,31 +123,15 @@ export default function TrainingPage() {
           </div>
           <div className={styles.featuresGrid}>
             {features.map((feature) => (
-              <div key={feature.title} className={styles.featureCard}>
+              <MagicCard key={feature.title} className={styles.featureCard}>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-              </div>
+              </MagicCard>
             ))}
           </div>
         </div>
       </section>
 
-      <section className={styles.techSection}>
-        <div className="container">
-          <div className="section-header">
-            <h2>Training Tracks</h2>
-            <p>Popular domains our teams cover</p>
-          </div>
-          <div className={styles.techGrid}>
-            {technologies.map((tech) => (
-              <div key={tech.name} className={styles.techCard}>
-                <span className={styles.techIcon}>{tech.icon}</span>
-                <span className={styles.techName}>{tech.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className={styles.processSection}>
         <div className="container">
@@ -144,26 +140,26 @@ export default function TrainingPage() {
             <p>Structured learning that drives adoption</p>
           </div>
           <div className={styles.processSteps}>
-            <div className={styles.processStep}>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>1</div>
               <h3>Assessment</h3>
               <p>Evaluate skills and align on outcomes.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>2</div>
               <h3>Curriculum</h3>
               <p>Design a tailored learning path and schedule.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>3</div>
               <h3>Delivery</h3>
               <p>Workshops, labs, and real-world exercises.</p>
-            </div>
-            <div className={styles.processStep}>
+            </MagicCard>
+            <MagicCard className={styles.processStep}>
               <div className={styles.stepNumber}>4</div>
               <h3>Reinforcement</h3>
               <p>Coaching and follow-ups for lasting impact.</p>
-            </div>
+            </MagicCard>
           </div>
         </div>
       </section>

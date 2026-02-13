@@ -2,90 +2,98 @@ import styles from './case-studies.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import CaseStudiesClient from './CaseStudiesClient';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Case Studies | GoToGreen',
+  title: 'Our Projects| GoToGreen',
   description: 'Explore our portfolio of successful projects. See how we have helped businesses achieve their technology goals.',
 };
 
 const caseStudies = [
   {
-    title: 'Enterprise Resource Planning System',
-    category: 'Web Development',
-    description: 'A comprehensive ERP system that streamlined operations for a manufacturing company, resulting in 40% efficiency improvement.',
+    title: 'Fonda Solution – Geotechnical Engineering Website',
+    category: 'Géotechnical',
+    description: 'A professional corporate website for a geotechnical engineering firm, built with Next.js — featuring SEO optimization, modern UI, and clear service presentation.',
+    image: '/images/projects/Fonda.webp',
+    href: '/case-studies/fonda-solution',
+  },
+  {
+    title: 'Carbon Emission Monitoring Platform',
+    category: 'GreenTech',
+    description: 'Real-time carbon tracking system for a manufacturing facility, enabling 30% reduction in emissions through data-driven optimization.',
     image: '/images/case-study-1.jpg',
-    href: '/case-studies/erp-system',
+    href: '/case-studies/carbon-monitoring',
   },
   {
-    title: 'Healthcare Mobile Application',
-    category: 'Mobile Apps',
-    description: 'Patient management app that improved appointment scheduling by 40% and reduced no-shows by 25%.',
+    title: 'Industrial Process Automation',
+    category: 'Industrie',
+    description: 'Automated production line management system that improved throughput by 45% and reduced operational costs.',
     image: '/images/case-study-2.jpg',
-    href: '/case-studies/healthcare-app',
+    href: '/case-studies/process-automation',
   },
   {
-    title: 'AI-Powered Analytics Dashboard',
-    category: 'AI Solutions',
-    description: 'Real-time analytics platform with predictive insights that increased sales forecasting accuracy by 35%.',
+    title: 'Geotechnical Survey Management System',
+    category: 'Géotechnical',
+    description: 'Digital platform for soil analysis data collection, processing, and reporting for construction projects.',
     image: '/images/case-study-3.jpg',
-    href: '/case-studies/analytics-dashboard',
+    href: '/case-studies/geotechnical-survey',
   },
   {
-    title: 'E-commerce Platform Redesign',
-    category: 'Web Development',
-    description: 'Complete redesign of an e-commerce platform that increased conversion rates by 60% and improved page load times.',
+    title: 'Smart Bridge Monitoring Solution',
+    category: 'Civil engineering',
+    description: 'IoT-based structural health monitoring system for bridges with real-time alerts and predictive maintenance.',
     image: '/images/case-study-4.jpg',
-    href: '/case-studies/ecommerce-redesign',
+    href: '/case-studies/bridge-monitoring',
   },
   {
-    title: 'Cloud Infrastructure Migration',
-    category: 'DevOps',
-    description: 'Migrated legacy infrastructure to AWS, achieving 99.99% uptime and reducing hosting costs by 45%.',
+    title: 'Renewable Energy Dashboard',
+    category: 'GreenTech',
+    description: 'Comprehensive monitoring dashboard for solar and wind energy installations with performance analytics.',
     image: '/images/case-study-5.jpg',
-    href: '/case-studies/cloud-migration',
+    href: '/case-studies/renewable-energy',
   },
   {
-    title: 'Logistics Tracking Application',
-    category: 'Mobile Apps',
-    description: 'Real-time fleet tracking and route optimization app that reduced delivery times by 30%.',
+    title: 'Factory Floor Digitalization',
+    category: 'Industrie',
+    description: 'Complete digital transformation of factory operations including inventory, quality control, and logistics.',
     image: '/images/case-study-6.jpg',
-    href: '/case-studies/logistics-app',
+    href: '/case-studies/factory-digitalization',
   },
   {
-    title: 'Customer Service Automation',
-    category: 'AI Solutions',
-    description: 'AI-powered chatbot that handles 70% of customer inquiries, reducing support costs significantly.',
+    title: 'Foundation Analysis Software',
+    category: 'Géotechnical',
+    description: 'Custom software for analyzing soil bearing capacity and foundation design recommendations.',
     image: '/images/case-study-7.jpg',
-    href: '/case-studies/chatbot-automation',
+    href: '/case-studies/foundation-analysis',
   },
   {
-    title: 'Financial Services Portal',
-    category: 'Web Development',
-    description: 'Secure customer portal for a financial services company with real-time account management features.',
+    title: 'Construction Project Management Portal',
+    category: 'Civil engineering',
+    description: 'Integrated platform for managing civil engineering projects, from planning to execution and handover.',
     image: '/images/case-study-8.jpg',
-    href: '/case-studies/financial-portal',
+    href: '/case-studies/construction-management',
   },
   {
-    title: 'Team Training Program',
+    title: 'Environmental Compliance Training Program',
     category: 'Training',
-    description: 'Comprehensive training program that upskilled a 50-person development team on modern technologies.',
+    description: 'Comprehensive training program on environmental regulations and sustainable practices for industrial teams.',
     image: '/images/case-study-9.jpg',
-    href: '/case-studies/training-program',
+    href: '/case-studies/environmental-training',
   },
 ];
 
-const categories = ['All', 'Web Development', 'Mobile Apps', 'AI Solutions', 'DevOps', 'Training'];
+const categories = ['All', 'GreenTech', 'Industrie', 'Géotechnical', 'Civil engineering', 'Training'];
 
 export default function CaseStudiesPage() {
   return (
     <>
       <PageHeader
-        title="Case Studies"
+        title="Our Projects"
         description="Explore how we have helped businesses transform their operations and achieve their goals through technology."
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Case Studies' },
+          { label: 'Our Projects' },
         ]}
       />
 
@@ -99,6 +107,8 @@ export default function CaseStudiesPage() {
         primaryCta={{ text: 'Start a Project', href: '/contact' }}
         variant="accent"
       />
+
+      <ScrollToTop />
     </>
   );
 }

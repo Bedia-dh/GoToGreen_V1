@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 
 interface HeroProps {
   title: string;
@@ -117,9 +118,9 @@ export default function Hero({
         {(primaryCta || secondaryCta) && (
           <div className={`${styles.actions} ${showActions ? styles.visible : ''}`}>
             {primaryCta && (
-              <Link href={primaryCta.href} className="btn btn-accent btn-lg">
+              <InteractiveHoverButton href={primaryCta.href} className="btn btn-accent btn-lg">
                 {primaryCta.text}
-              </Link>
+              </InteractiveHoverButton>
             )}
             {secondaryCta && (
               <Link href={secondaryCta.href} className="btn btn-white btn-lg">

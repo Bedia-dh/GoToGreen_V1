@@ -1,11 +1,11 @@
 .overviewSection {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-2xl) 0;
 }
 
 .overviewGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-4xl);
+  gap: var(--spacing-2xl);
   align-items: center;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .featuresSection {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-2xl) 0;
   background-color: var(--color-bg-soft);
 }
 
@@ -67,7 +67,7 @@
 }
 
 .techSection {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-2xl) 0;
 }
 
 .techGrid {
@@ -102,7 +102,7 @@
 }
 
 .processSection {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-2xl) 0;
   background-color: var(--color-bg-soft);
 }
 
@@ -144,7 +144,7 @@
 }
 
 .faqSection {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-2xl) 0;
 }
 
 @media (max-width: 1024px) {

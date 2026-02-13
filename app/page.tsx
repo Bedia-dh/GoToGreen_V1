@@ -1,51 +1,93 @@
 import Link from 'next/link';
 import styles from './page.module.css';
+import Image from 'next/image'; 
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import { ShineBorder } from '@/components/ui/shine-border';
 import CaseStudyCard from '@/components/CaseStudyCard';
 import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
 import ClientLogos from '@/components/ClientLogos';
 import FAQ from '@/components/FAQ';
 import CTABanner from '@/components/CTABanner';
+import SlidingCards from '@/components/lightswind/sliding-cards';
 
 const services = [
   {
     title: 'Web Development',
-    description: 'Custom web applications built with modern technologies for performance, scalability, and exceptional user experience.',
+    description: 'Modern, responsive websites tailored to your brand, flexible CMS solutions, and full-cycle software products from ideation to deployment.',
     href: '/services/web-development',
-    image: '/images/web_dev.avif',
+    image: '/images/homepage/web_dev.avif',
   },
   {
     title: 'Mobile Apps',
-    description: 'Native and cross-platform mobile applications that deliver seamless experiences across iOS and Android.',
+    description: 'Custom iOS and Android apps built for performance, usability, and scale—native or cross-platform with seamless integrations.',
     href: '/services/mobile-apps',
-    image: '/images/mobile.jpeg',
+    image: '/images/homepage/mobile.jpeg',
   },
   {
     title: 'AI Solutions',
-    description: 'Intelligent automation and machine learning solutions that transform your business processes and decision-making.',
+    description: 'Smart automation, predictive analytics, and AI-driven digital tools that enhance your business.',
     href: '/services/ai-solutions',
-    image: '/images/ai_solutions.jpeg',
+    image: '/images/homepage/ai_solutions.jpeg',
   },
   {
     title: 'DevOps & Infrastructure',
-    description: 'Cloud architecture, CI/CD pipelines, and infrastructure automation for reliable and efficient deployments.',
+    description: 'Streamlined deployment, continuous integration, and efficient cloud infrastructure management.',
     href: '/services/devops',
-    image: '/images/devops.jpeg',
+    image: '/images/homepage/devops.jpeg',
   },
   {
 
     title: 'Training & Capacity Building',
-    description: 'Technical training programs to upskill your team and build sustainable in-house capabilities.',
+    description: 'Practical, tailored training on sustainability, EU regulatory compliance, and digital best practices delivered by experienced trainers.',
     href: '/services/training',
-    image: '/images/training.jpeg',
+    image: '/images/homepage/training.jpeg',
   },
   {
     title: 'SEO & Digital Growth',
-    description: 'Data-driven strategies to increase visibility, drive traffic, and convert visitors into customers.',
+    description: 'SEO & geo optimization to reach the right audience, plus maintenance and support to keep your digital presence secure and smooth.',
     href: '/services/seo',
-    image: '/images/seo.jpg',
+    image: '/images/homepage/seo.jpeg',
+  },
+  {
+    title: 'PCF Calculator',
+    description: 'Measure your product carbon footprint accurately with our standards-compliant calculator aligned with GHG Protocol and trusted databases.',
+    href: '/services/pcf-calculator',
+    image: '/images/services_images/Co2.png',
+  },
+  
+];
+
+const cardItems = [
+  { 
+    id: 1, 
+    icon: <img src="/images/icons/hand-shake.png" alt="Expertise" style={{ width: '32px', height: '32px' }} />,
+    bgClass: 'bg-gradient-to-br from-green-400 to-emerald-600',
+    title: "End-to-End Expertise",
+    description: "From idea to deployment and long-term support."
+  },
+  { 
+    id: 2, 
+    icon: <img src="/images/icons/technology (1).png" alt="Technology" style={{ width: '32px', height: '32px' }} />,
+    bgClass: 'bg-gradient-to-br from-blue-400 to-indigo-600',
+    title: "Advanced Technology",
+    description: "Modern frameworks, automation, and scalable architecture."
+  },
+  { 
+    id: 3, 
+    icon: <img src="/images/icons/recycle (1).png" alt="Sustainability" style={{ width: '32px', height: '32px' }} />,
+    bgClass: 'bg-gradient-to-br from-teal-400 to-cyan-500',
+    title: "Sustainability by Design",
+    description: "Eco-efficient development that reduces digital waste."
+  },
+  { 
+    id: 4, 
+    icon: <img src="/images/icons/medal.png" alt="Excellence" style={{ width: '32px', height: '32px' }} />,
+    bgClass: 'bg-gradient-to-br from-purple-400 to-pink-500',
+    title: "Client-First Mindset",
+    description: "Solutions aligned to your goals and business needs."
   },
 ];
 
@@ -74,40 +116,50 @@ const caseStudies = [
 ];
 
 const stats = [
-  { value: '150', suffix: '+', label: 'Projects Delivered' },
-  { value: '50', suffix: '+', label: 'Happy Clients' },
-  { value: '15', suffix: '+', label: 'Years Experience' },
+  { value: '12', suffix: '+', label: 'Projects Delivered' },
+  { value: '20', suffix: '+', label: 'Years Combined Experience' },
   { value: '99', suffix: '%', label: 'Client Satisfaction' },
+  { value: '3', suffix: '', label: 'Active R&D Tracks' },
 ];
 
 const testimonials = [
   {
-    quote: 'GoToGreen transformed our digital infrastructure. Their technical expertise and commitment to quality exceeded our expectations. The new system has improved our efficiency by 60%.',
-    author: 'Sarah Johnson',
-    role: 'CTO',
-    company: 'TechCorp Industries',
-  },
-  {
-    quote: 'Working with GoToGreen was a game-changer for our business. They delivered a mobile app that our customers love, and the ongoing support has been exceptional.',
-    author: 'Michael Chen',
+    quote: 'Excellent technical expertise, great attention to detail, and truly pleasant collaboration. The project ran smoothly thanks to your professionalism. I look forward to future projects together.',
+    author: 'Soumaya Elkamel',
     role: 'CEO',
-    company: 'RetailPlus',
+    company: 'FondaSolution',
+    rating: 5,
   },
   {
-    quote: 'The AI solution they built for us has automated 70% of our manual processes. Their team understood our needs and delivered beyond what we imagined possible.',
-    author: 'Emma Williams',
-    role: 'Operations Director',
-    company: 'HealthFirst',
+    quote: 'Your work on our GEO & AI Optimization project has been outstanding. High quality, responsive, and impactful. We value your partnership and look forward to the next phases.',
+    author: 'Jihen Ben Jrad',
+    role: 'Communication & Marketing Responsible',
+    company: 'Amphenol Automotive',
+    rating: 5,
+  },
+  {
+    quote: 'Professional, efficient, and reliable. Your team delivered clear, structured, and high-quality results during the SDC Congress challenge. Excellent collaboration.',
+    author: 'Rima Fathallah',
+    role: 'Executive Member',
+    company: 'IEEE SIGHT',
+    rating: 5,
   },
 ];
 
 const clients = [
-  { name: 'TechCorp' },
-  { name: 'Innovate Inc' },
-  { name: 'FutureLabs' },
-  { name: 'DataDrive' },
-  { name: 'CloudNine' },
-  { name: 'NextGen' },
+  { name: 'Partner 1', logo: '/images/pics/Partners1/1._image_2026-01-28_145321199-removebg-preview.png' },
+  { name: 'Partner 2', logo: '/images/pics/Partners1/2._image_2026-01-28_145714510-removebg-preview.png' },
+  { name: 'Partner 3', logo: '/images/pics/Partners1/3. image_2026-01-28_145826402.png' },
+  { name: 'Partner 4', logo: '/images/pics/Partners1/4._image_2026-01-28_145041663-removebg-preview.png' },
+  { name: 'Partner 5', logo: '/images/pics/Partners1/6.-removebg-preview.png' },
+  { name: 'Partner 6', logo: '/images/pics/Partners1/image_2026-01-28_145339185-removebg-preview.png' },
+  { name: 'Partner 7', logo: '/images/pics/Partners1/image_2026-01-28_145519074-removebg-preview.png' },
+  { name: 'Partner 8', logo: '/images/pics/Partners1/image_2026-01-28_145635964-removebg-preview.png' },
+  { name: 'Partner 9', logo: '/images/pics/Partners1/image_2026-01-28_145744703.png' },
+  { name: 'Partner 10', logo: '/images/pics/Partners1/image_2026-01-28_145917303-removebg-preview.png' },
+  { name: 'Partner 11', logo: '/images/pics/Partners1/image_2026-01-28_150305216.png' },
+  { name: 'Partner 12', logo: '/images/pics/Partners1/image_2026-01-28_150416084-removebg-preview.png' },
+  { name: 'Partner 13', logo: '/images/pics/Partners1/image_2026-01-28_150434909.png' },
 ];
 
 const faqItems = [
@@ -134,7 +186,7 @@ export default function Home() {
     <div className={styles.main}>
       {/* Hero Section */}
       <Hero
-        title="Technology Solutions for Modern Business"
+        title="Digital Solutions with Purpose"
         subtitle="Innovation & Efficiency"
        //description="We deliver cutting-edge web, mobile, and AI solutions that drive growth and operational excellence. Built with precision, designed for impact."
         primaryCta={{ text: 'Start Your Project', href: '/contact' }}
@@ -172,46 +224,15 @@ export default function Home() {
             <div className={styles.aboutText}>
               <h2>Why Choose GoToGreen?</h2>
               <p>
-                We combine technical excellence with a deep understanding of business 
-                challenges. Our solutions are built for performance, scalability, and 
-                long-term value—engineered with responsibility and efficiency in mind.
+                We support every phase of your product lifecycle with clear processes, reliable execution, and continuous improvement.
+                Our solutions are built to last—fast, secure, and ready for long-term growth.
               </p>
-              <div className={styles.aboutFeatures}>
-                <div className={styles.feature}>
-                  <div className={styles.featureIcon}>✓</div>
-                  <div className={styles.featureText}>
-                    <h4>Expert Team</h4>
-                    <p>Skilled developers and architects</p>
-                  </div>
-                </div>
-                <div className={styles.feature}>
-                  <div className={styles.featureIcon}>✓</div>
-                  <div className={styles.featureText}>
-                    <h4>Agile Process</h4>
-                    <p>Flexible and transparent workflow</p>
-                  </div>
-                </div>
-                <div className={styles.feature}>
-                  <div className={styles.featureIcon}>✓</div>
-                  <div className={styles.featureText}>
-                    <h4>Quality Focus</h4>
-                    <p>Rigorous testing and best practices</p>
-                  </div>
-                </div>
-                <div className={styles.feature}>
-                  <div className={styles.featureIcon}>✓</div>
-                  <div className={styles.featureText}>
-                    <h4>Ongoing Support</h4>
-                    <p>Reliable maintenance and updates</p>
-                  </div>
-                </div>
-              </div>
-              <Link href="/about" className="btn btn-primary" style={{ marginTop: '2rem' }}>
+              <InteractiveHoverButton href="/about" className="btn btn-primary" style={{ marginTop: '2rem' }}>
                 Learn More About Us
-              </Link>
+              </InteractiveHoverButton>
             </div>
-            <div className={styles.aboutImage}>
-              <span className={styles.aboutImagePlaceholder}>🚀</span>
+            <div className={styles.aboutCards}>
+              <SlidingCards cards={cardItems} />
             </div>
           </div>
         </div>
@@ -225,22 +246,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Case Studies Section */}
+      {/* Our Projects Section */}
       <section className={styles.caseStudiesSection}>
         <div className="container">
           <div className="section-header">
             <h2>Featured Work</h2>
             <p>Explore how we&apos;ve helped businesses achieve their goals</p>
           </div>
-          <div className={styles.caseStudiesGrid}>
-            {caseStudies.map((study) => (
-              <CaseStudyCard key={study.title} {...study} />
-            ))}
-          </div>
-          <div className={styles.viewAll}>
-            <Link href="/case-studies" className="btn btn-outline">
-              View All Case Studies
-            </Link>
+          
+          {/* Pass2Green Project Highlight */}
+          <div className={styles.pass2greenHighlight}>
+            <div className={styles.pass2greenContent}>
+              <div className={styles.pass2greenLogo}>
+                <ShineBorder color="rgba(110, 168, 67, 0.8)" borderRadius={19} borderWidth={4}>
+                  <a href="https://pass2green.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src="/images/homepage/pass2green.png"
+                      alt="Pass2Green" 
+                      height={300}
+                      width={300} 
+                    /> 
+                  </a>
+                </ShineBorder>
+              </div>
+              <div className={styles.pass2greenText}>
+                <h3>Pass2Green - Our Flagship Project</h3>
+                <p>
+                  Pass2Green is GoToGreen’s flagship project, designed to help organizations move from sustainability intent to measurable impact. Through DPP generation, Product Carbon Footprint Calculator and AI environmental consultancy. 
+                  It’s a digital ecosystem that simplifies environmental responsibility by turning complex sustainability requirements into clear, actionable steps; from carbon awareness to responsible operations and compliance readiness.
+                  Pass2Green operates as an independent platform with its own dedicated website, while remaining fully aligned with GoToGreen’s mission: making sustainability practical, scalable, and accessible for businesses and institutions.
+                </p>
+                <div className={styles.pass2greenCtas}>
+                  <InteractiveHoverButton 
+                    href="https://pass2green.vercel.app/" 
+                    className="btn btn-primary"
+                    target="_blank"
+                  >
+                    Visit Pass2Green
+                  </InteractiveHoverButton>
+                  <Link href="/case-studies" className="btn btn-outline">
+                    View All Projects
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

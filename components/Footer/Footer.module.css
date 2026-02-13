@@ -99,6 +99,10 @@
   color: var(--color-accent);
 }
 
+.newsletterSection {
+  margin-bottom: var(--spacing-3xl);
+}
+
 .footerBottom {
   display: flex;
   align-items: center;

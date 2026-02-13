@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './services.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
+import ScrollToTop from '@/components/ScrollToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,93 +13,93 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: '💻',
+    image: '/images/homepage/web_dev.avif',
     title: 'Web Design & Development',
-    description: 'Custom web applications and websites built with modern technologies. From corporate sites to complex platforms, we create responsive, performant, and scalable solutions.',
+    description: 'Modern, responsive websites tailored to your brand, flexible CMS solutions, and full-cycle digital tools from ideation to deployment.',
     features: [
-      'Custom Web Applications',
-      'E-commerce Platforms',
-      'Content Management Systems',
-      'Progressive Web Apps',
-      'API Development',
+      'Web Design & Development',
+      'CMS Solutions',
+      'Digital Tools & Software Products',
+      'Responsive UX/UI',
+      'API Integrations',
       'Performance Optimization',
     ],
     href: '/services/web-development',
   },
   {
-    icon: '📱',
+    image: '/images/services_images/mobile_2.png',
     title: 'Mobile Application Development',
-    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences. We build apps that users love and businesses rely on.',
+    description: 'Custom iOS and Android apps built for performance, usability, and scale. From concept to launch, we deliver mobile experiences users love.',
     features: [
-      'iOS Development',
-      'Android Development',
-      'Cross-platform Apps',
-      'App Store Optimization',
-      'Push Notifications',
-      'Offline Functionality',
+      'Native iOS & Android Apps',
+      'Cross-platform Efficiency',
+      'Intuitive Interfaces',
+      'Seamless System Integration',
+      'App Store Launch',
+      'Performance Optimization',
     ],
     href: '/services/mobile-apps',
   },
   {
-    icon: '🤖',
+    image: '/images/homepage/ai_solutions.jpeg',
     title: 'Intelligent Solutions (AI & Automation)',
-    description: 'Leverage artificial intelligence and automation to transform your business processes. From chatbots to predictive analytics, we build smart solutions.',
+    description: 'Smart automation, predictive analytics, and AI-driven digital tools that enhance decision-making and efficiency.',
     features: [
-      'Machine Learning Models',
-      'Natural Language Processing',
-      'Computer Vision',
-      'Process Automation',
+      'AI-powered Solutions',
       'Predictive Analytics',
-      'AI-powered Chatbots',
+      'Workflow Automation',
+      'Data-driven Insights',
+      'Intelligent Assistants',
+      'Custom AI Integrations',
     ],
     href: '/services/ai-solutions',
   },
   {
-    icon: '⚙️',
+    image: '/images/services_images/devops_2.png',
     title: 'DevOps & Infrastructure',
-    description: 'Streamline your development pipeline and infrastructure. We implement robust CI/CD pipelines, cloud architecture, and monitoring solutions.',
+    description: 'Streamlined deployment, continuous integration, and efficient cloud infrastructure management.',
     features: [
-      'Cloud Migration',
-      'CI/CD Pipelines',
-      'Container Orchestration',
-      'Infrastructure as Code',
-      'Monitoring & Logging',
-      'Security Implementation',
+      'DevOps & Deployment',
+      'CI/CD Automation',
+      'Infrastructure Management',
+      'Monitoring & Observability',
+      'Security Best Practices',
+      'Cost Optimization',
     ],
     href: '/services/devops',
   },
   {
-    icon: '📚',
+    image: '/images/services_images/training_2.png',
     title: 'Training & Capacity Building',
-    description: 'Invest in your team with our technical training programs. We offer hands-on workshops and courses to build sustainable in-house capabilities.',
+    description: 'Practical, tailored training on sustainability, EU regulatory compliance, and digital best practices delivered by experienced trainers.',
     features: [
-      'Technical Workshops',
-      'Team Training Programs',
-      'Code Review Sessions',
-      'Best Practices Coaching',
-      'Technology Assessment',
-      'Custom Curriculum',
+      'Tailored Training Programs',
+      'Sustainability Foundations',
+      'EU Regulatory Compliance',
+      'Digital Best Practices',
+      'Hands-on Workshops',
+      'Team Enablement',
     ],
     href: '/services/training',
   },
   {
-    icon: '📈',
-    title: 'SEO & Digital Growth',
-    description: 'Data-driven strategies to increase your online visibility and drive business growth. From technical SEO to content strategy, we help you reach your audience.',
+    image: '/images/services_images/seo_growth.avif',
+    title: 'GEO & Digital Growth',
+    description: 'GEO and SEO optimization to improve visibility, plus maintenance and support to keep your presence secure and smooth.',
     features: [
-      'Technical SEO Audit',
-      'Content Strategy',
-      'Analytics Setup',
-      'Conversion Optimization',
-      'Performance Tracking',
-      'Competitive Analysis',
+      'GEO & SEO Optimization',
+      'Audience Targeting',
+      'Performance Improvements',
+      'Analytics & Insights',
+      'Maintenance & Support',
+      'Ongoing Optimization',
     ],
     href: '/services/seo',
   },
   {
-    icon: '🛠️',
-    title: 'Support & Maintenance',
-    description: 'Keep your applications running smoothly with our comprehensive support services. We provide proactive maintenance, updates, and rapid issue resolution.',
+    image: '/images/services_images/it_support.png',
+    title: 'Maintenance & Support',
+    description: 'Keep your digital presence secure, updated, and smooth with proactive monitoring, updates, and rapid issue resolution.',
     features: [
       '24/7 Monitoring',
       'Bug Fixes & Updates',
@@ -107,6 +109,20 @@ const services = [
       'SLA-based Support',
     ],
     href: '/services/support',
+  },
+  {
+    image: '/images/services_images/Co2.png',
+    title: 'Product Carbon Footprint Calculator',
+    description: 'Measure the environmental impact of your products accurately, transparently, and in line with international standards.',
+    features: [
+      'GHG Protocol Compliant',
+      'Lifecycle Assessment',
+      'Emission Factor Databases',
+      'CO₂e Calculations',
+      'Hotspot Identification',
+      'Reporting Ready',
+    ],
+    href: '/services/pcf-calculator',
   },
 ];
 
@@ -131,7 +147,6 @@ export default function ServicesPage() {
               className={`${styles.serviceItem} ${index % 2 === 1 ? styles.reversed : ''}`}
             >
               <div className={styles.serviceContent}>
-                <span className={styles.serviceIcon}>{service.icon}</span>
                 <h2>{service.title}</h2>
                 <p className={styles.serviceDescription}>{service.description}</p>
                 <ul className={styles.featureList}>
@@ -149,7 +164,12 @@ export default function ServicesPage() {
                 </Link>
               </div>
               <div className={styles.serviceVisual}>
-                <span className={styles.visualIcon}>{service.icon}</span>
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className={styles.serviceImage}
+                />
               </div>
             </div>
           ))}
@@ -194,6 +214,8 @@ export default function ServicesPage() {
         primaryCta={{ text: 'Contact Us', href: '/contact' }}
         secondaryCta={{ text: 'View Case Studies', href: '/case-studies' }}
       />
+
+      <ScrollToTop />
     </>
   );
 }

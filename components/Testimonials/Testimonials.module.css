@@ -5,7 +5,7 @@
 
 .slider {
   position: relative;
-  min-height: 300px;
+  min-height: 320px;
 }
 
 .slide {
@@ -14,33 +14,52 @@
   left: 0;
   right: 0;
   opacity: 0;
-  transform: translateX(20px);
-  transition: all var(--transition-base);
+  transform: translateY(20px) scale(0.98);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 
 .slide.active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
-.quote {
+.card {
+  background: var(--color-bg);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl) var(--spacing-3xl);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
 }
 
-.quoteIcon {
-  color: var(--color-accent);
-  opacity: 0.3;
-  margin-bottom: var(--spacing-lg);
+/* Stars Rating */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xl);
+}
+
+.star {
+  color: #e0e0e0;
+  transition: all var(--transition-fast);
+}
+
+.star.starFilled {
+  color: #facc15;
+}
+
+.quote {
+  margin-bottom: var(--spacing-xl);
 }
 
 .quote p {
   font-size: var(--font-size-xl);
   line-height: 1.8;
   color: var(--color-text-main);
-  font-style: italic;
+  font-weight: var(--font-weight-normal);
 }
 
 .author {
@@ -54,11 +73,12 @@
   width: 56px;
   height: 56px;
   border-radius: var(--radius-full);
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(15, 61, 35, 0.2);
 }
 
 .avatar img {
@@ -75,17 +95,25 @@
 
 .authorInfo {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .authorInfo strong {
-  display: block;
   color: var(--color-text-main);
   font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
 }
 
 .authorInfo span {
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
+}
+
+.company {
+  color: var(--color-accent) !important;
+  font-weight: var(--font-weight-medium);
 }
 
 .controls {
@@ -103,17 +131,19 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-full);
   color: var(--color-text-main);
   cursor: pointer;
   transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .controlBtn:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-bg);
+  transform: scale(1.05);
 }
 
 .dots {
@@ -125,19 +155,81 @@
   width: 10px;
   height: 10px;
   border-radius: var(--radius-full);
-  background-color: var(--color-border);
+  background-color: rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
+.dot:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .dot.dotActive {
   background-color: var(--color-accent);
-  width: 24px;
+  width: 28px;
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .slider {
+    min-height: 420px;
+  }
+
+  .card {
+    padding: var(--spacing-lg);
+    margin: 0 var(--spacing-xs);
+  }
+
   .quote p {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+  }
+
+  .stars {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .star {
+    width: 18px;
+    height: 18px;
+  }
+
+  .author {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .authorInfo {
+    text-align: center;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .controls {
+    margin-top: var(--spacing-2xl);
+    gap: var(--spacing-md);
+    position: relative;
+    z-index: 10;
+  }
+
+  .controlBtn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.dotActive {
+    width: 20px;
   }
 }
