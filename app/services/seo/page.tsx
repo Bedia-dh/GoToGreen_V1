@@ -1,10 +1,8 @@
-import Link from 'next/link';
 import styles from './service-detail.module.css';
 import Image from 'next/image';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
-import { IconCloud } from '@/components/ui/icon-cloud';
 import { MagicCard } from '@/components/ui/magic-card';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -14,16 +12,6 @@ export const metadata: Metadata = {
   title: 'SEO & GEO Optimization | GoToGreen',
   description: 'Combine traditional SEO with cutting-edge Generative Engine Optimization (GEO) to dominate both search engines and AI-powered discovery platforms.',
 };
-
-const techImages = [
-  'google',
-  'googleanalytics',
-  'lighthouse',
-  'openai',
-  'vercel',
-  'typescript',
-  'nextjs',
-];
 
 const features = [
   {

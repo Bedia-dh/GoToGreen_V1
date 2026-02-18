@@ -97,7 +97,7 @@ const services = [
     href: '/services/seo',
   },
   {
-    image: '/images/services_images/it_support.png',
+    image: '/images/services_images/it_support.webp',
     title: 'Maintenance & Support',
     description: 'Keep your digital presence secure, updated, and smooth with proactive monitoring, updates, and rapid issue resolution.',
     features: [
@@ -185,22 +185,22 @@ export default function ServicesPage() {
           </div>
           <div className={styles.processSteps}>
             <div className={styles.processStep}>
-              <span className={styles.stepNumber}>01</span>
+              <span className={styles.stepNumber}>I</span>
               <h3>Discovery</h3>
               <p>We analyze your requirements, goals, and challenges to create a solid project foundation.</p>
             </div>
             <div className={styles.processStep}>
-              <span className={styles.stepNumber}>02</span>
+              <span className={styles.stepNumber}>II</span>
               <h3>Planning</h3>
               <p>Detailed project roadmap, architecture design, and resource allocation.</p>
             </div>
             <div className={styles.processStep}>
-              <span className={styles.stepNumber}>03</span>
+              <span className={styles.stepNumber}>III</span>
               <h3>Development</h3>
               <p>Agile development with regular sprints, testing, and client feedback loops.</p>
             </div>
             <div className={styles.processStep}>
-              <span className={styles.stepNumber}>04</span>
+              <span className={styles.stepNumber}>IV</span>
               <h3>Delivery</h3>
               <p>Thorough QA, deployment, training, and ongoing support for lasting success.</p>
             </div>

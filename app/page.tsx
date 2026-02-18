@@ -5,7 +5,6 @@ import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import { ShineBorder } from '@/components/ui/shine-border';
-import CaseStudyCard from '@/components/CaseStudyCard';
 import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
 import ClientLogos from '@/components/ClientLogos';
@@ -63,55 +62,31 @@ const services = [
 const cardItems = [
   { 
     id: 1, 
-    icon: <img src="/images/icons/hand-shake.png" alt="Expertise" style={{ width: '32px', height: '32px' }} />,
+    icon: <Image src="/images/icons/hand-shake.png" alt="Expertise" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-green-400 to-emerald-600',
     title: "End-to-End Expertise",
     description: "From idea to deployment and long-term support."
   },
   { 
     id: 2, 
-    icon: <img src="/images/icons/technology (1).png" alt="Technology" style={{ width: '32px', height: '32px' }} />,
+    icon: <Image src="/images/icons/technology (1).png" alt="Technology" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-blue-400 to-indigo-600',
     title: "Advanced Technology",
     description: "Modern frameworks, automation, and scalable architecture."
   },
   { 
     id: 3, 
-    icon: <img src="/images/icons/recycle (1).png" alt="Sustainability" style={{ width: '32px', height: '32px' }} />,
+    icon: <Image src="/images/icons/recycle (1).png" alt="Sustainability" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-teal-400 to-cyan-500',
     title: "Sustainability by Design",
     description: "Eco-efficient development that reduces digital waste."
   },
   { 
     id: 4, 
-    icon: <img src="/images/icons/medal.png" alt="Excellence" style={{ width: '32px', height: '32px' }} />,
+    icon: <Image src="/images/icons/medal.png" alt="Excellence" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-purple-400 to-pink-500',
     title: "Client-First Mindset",
     description: "Solutions aligned to your goals and business needs."
-  },
-];
-
-const caseStudies = [
-  {
-    title: 'Enterprise Resource Planning System',
-    category: 'Web Development',
-    description: 'A comprehensive ERP system that streamlined operations for a manufacturing company.',
-    image: '/images/case-study-1.jpg',
-    href: '/case-studies/erp-system ',
-  },
-  {
-    title: 'Healthcare Mobile Application',
-    category: 'Mobile Apps',
-    description: 'Patient management app that improved appointment scheduling by 40%.',
-    image: '/images/case-study-2.jpg',
-    href: '/case-studies/healthcare-app',
-  },
-  {
-    title: 'AI-Powered Analytics Dashboard',
-    category: 'AI Solutions',
-    description: 'Real-time analytics platform with predictive insights for retail operations.',
-    image: '/images/case-study-3.jpg',
-    href: '/case-studies/analytics-dashboard',
   },
 ];
 
@@ -119,7 +94,7 @@ const stats = [
   { value: '12', suffix: '+', label: 'Projects Delivered' },
   { value: '20', suffix: '+', label: 'Years Combined Experience' },
   { value: '99', suffix: '%', label: 'Client Satisfaction' },
-  { value: '3', suffix: '', label: 'Active R&D Tracks' },
+  { value: '1', suffix: '', label: 'Active R&D Tracks' },
 ];
 
 const testimonials = [

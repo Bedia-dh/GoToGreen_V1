@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import emailjs from '@emailjs/nodejs';
+import { contactRateLimit, getClientIP } from '@/lib/rate-limit';
 
 interface ContactFormData {
   name: string;
@@ -11,6 +12,15 @@ interface ContactFormData {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting check
+    const clientIP = getClientIP(request);
+    if (!contactRateLimit.isAllowed(clientIP)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again in a few minutes.' },
+        { status: 429 }
+      );
+    }
+
     const body: ContactFormData = await request.json();
 
     // Validate required fields
@@ -48,7 +58,7 @@ export async function POST(request: NextRequest) {
       serviceId,
       templateId,
       {
-        email: 'badiidh125@gmail.com',
+        email: process.env.CONTACT_RECIPIENT_EMAIL || 'dhbedia@gmail.com',
         to_name: 'GoToGreen Team',
         from_name: body.name,
         from_email: body.email,

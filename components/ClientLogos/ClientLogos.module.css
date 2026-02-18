@@ -21,7 +21,7 @@
   align-items: center;
   gap: var(--spacing-3xl);
   width: max-content;
-  animation: marquee 26s linear infinite;
+  animation: marquee 38s linear infinite;
 }
 
 .logo {
@@ -40,7 +40,7 @@
   cursor: pointer ;
 }
 
-.logo img {
+.logoImage {
   max-width: 150px;
   max-height: 80px;
   object-fit: contain;
@@ -60,7 +60,7 @@
     gap: var(--spacing-xl);
   }
 
-  .logo img {
+  .logoImage {
     max-width: 100px;
   }
 }

@@ -53,12 +53,12 @@ export default function ProgramsMarquee() {
           <ProgramLogo key={`${program.name}-${i}`} {...program} />
         ))}
       </div>
-      <div className={styles.marqueeColumn}>
+      <div className={`${styles.marqueeColumn} ${styles.desktopOnly}`}>
         {[...column3, ...column3].map((program, i) => (
           <ProgramLogo key={`${program.name}-${i}`} {...program} />
         ))}
       </div>
-      <div className={`${styles.marqueeColumn} ${styles.reverse}`}>
+      <div className={`${styles.marqueeColumn} ${styles.reverse} ${styles.desktopOnly}`}>
         {[...column4, ...column4].map((program, i) => (
           <ProgramLogo key={`${program.name}-${i}`} {...program} />
         ))}

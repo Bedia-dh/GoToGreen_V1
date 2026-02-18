@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, readFile } from 'fs/promises';
 import path from 'path';
+import { newsletterRateLimit, getClientIP } from '@/lib/rate-limit';
 
 interface Subscriber {
   email: string;
@@ -25,6 +26,15 @@ async function saveSubscribers(subscribers: Subscriber[]): Promise<void> {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting check
+    const clientIP = getClientIP(request);
+    if (!newsletterRateLimit.isAllowed(clientIP)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const { email } = await request.json();
 
     if (!email) {

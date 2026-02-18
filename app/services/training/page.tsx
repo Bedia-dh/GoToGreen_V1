@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import styles from './service-detail.module.css';
 import PageHeader from '@/components/PageHeader';
@@ -13,15 +12,6 @@ export const metadata: Metadata = {
   title: 'Training & Capacity Building | GoToGreen',
   description: 'Tailored training programs that upskill teams in modern engineering, cloud, and AI practices.',
 };
-
-const techImages = [
-  'react',
-  'aws',
-  'python',
-  'flutter',
-  'git',
-  'docker',
-];
 
 const features = [
   {

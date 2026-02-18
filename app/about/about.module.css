@@ -55,6 +55,7 @@
 .programsSection {
   padding: var(--spacing-4xl) 0;
   background: var(--color-bg-soft);
+  overflow: hidden;
 }
 
 .valuesGrid {
@@ -198,5 +199,13 @@
   .teamGrid,
   .whyGrid {
     grid-template-columns: 1fr;
+  }
+  
+  .programsSection {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .missionStatement {
+    font-size: var(--font-size-xl);
   }
 }

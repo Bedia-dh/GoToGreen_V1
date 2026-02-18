@@ -1,10 +1,8 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import styles from './service-detail.module.css';
 import PageHeader from '@/components/PageHeader';
 import CTABanner from '@/components/CTABanner';
 import FAQ from '@/components/FAQ';
-import { IconCloud } from '@/components/ui/icon-cloud';
 import { MagicCard } from '@/components/ui/magic-card';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -14,15 +12,6 @@ export const metadata: Metadata = {
   title: 'Web Development Services | GoToGreen',
   description: 'Custom web applications and websites built with modern technologies for performance, scalability, and exceptional user experience.',
 };
-
-const techImages = [
-  'react',
-  'nextjs',
-  'nodejs',
-  'typescript',
-  'postgresql',
-  'mongodb',
-];
 
 const features = [
   {

@@ -60,13 +60,15 @@
 
 .label {
   display: block;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.9);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
 }
-.label:hover {
-  color: white;
-   transition: transform 0.5s ease 0.1s;
+
+.stat:hover .label {
+  color: var(--color-bg);
 }
 
 @media (max-width: 1024px) {

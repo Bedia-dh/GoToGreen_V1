@@ -20,13 +20,6 @@ async function getSubscribers(): Promise<Subscriber[]> {
   }
 }
 
-interface BlogPost {
-  title: string;
-  excerpt: string;
-  url: string;
-  publishedAt: string;
-}
-
 export async function POST(request: NextRequest) {
   try {
     const { blogPost, apiKey } = await request.json();

@@ -8,69 +8,40 @@ export const metadata: Metadata = {
 };
 
 const blogPosts = [
+    {
+    title: 'Digital Product Passport: A Pathway to Circularity and Sustainability',
+    excerpt: 'Discover how Digital Product Passports (DPP) are revolutionizing manufacturing by enhancing transparency, traceability, and sustainability throughout the product lifecycle.',
+    category: 'GreenTech',
+    date: 'February 18, 2026',
+    readTime: '15 min',
+    image: '/images/blogs/dpp.jpg',
+    href: '/blog/digital-product-passport-circularity-sustainability',
+    author: { name: 'Foivos Psarommatis' },
+  },
   {
     title: 'Sustainable Technology Solutions for Modern Industries',
     excerpt: 'Explore how green technology is transforming industrial processes and reducing environmental impact while improving efficiency.',
     category: 'GreenTech',
     date: 'January 15, 2026',
     readTime: '8 min',
-    image: '/images/blog-1.jpg',
+    image: '/images/blogs/blog-1.webp',
     href: '/blog/sustainable-technology-solutions',
     author: { name: 'David Anderson' },
   },
+
   {
-    title: 'Digital Transformation in Industrial Manufacturing',
-    excerpt: 'Best practices for implementing digital solutions in manufacturing environments to optimize production and reduce waste.',
-    category: 'Industrie',
-    date: 'January 10, 2026',
+    title: 'Sustainable Technology: Putting Technology at the Heart of Your CSR Strategy',
+    excerpt: 'Learn how to integrate sustainable technology practices into your CSR strategy with PwC\'s comprehensive approach to responsible digital transformation.',
+    category: 'Sustainable Tech',
+    date: 'February 17, 2026',
     readTime: '12 min',
-    image: '/images/blog-2.jpg',
-    href: '/blog/digital-transformation-manufacturing',
-    author: { name: 'Lisa Chen' },
-  },
-  {
-    title: 'Advanced Soil Analysis Technologies',
-    excerpt: 'A comprehensive guide to modern geotechnical analysis methods and how they improve construction project outcomes.',
-    category: 'Géotechnical',
-    date: 'January 5, 2026',
-    readTime: '10 min',
-    image: '/images/blog-3.jpg',
-    href: '/blog/advanced-soil-analysis',
-    author: { name: 'Marcus Johnson' },
-  },
-  {
-    title: 'Smart Infrastructure: The Future of Civil Engineering',
-    excerpt: 'How IoT and smart sensors are revolutionizing civil engineering projects, from bridges to buildings.',
-    category: 'Civil engineering',
-    date: 'December 28, 2025',
-    readTime: '7 min',
-    image: '/images/blog-4.jpg',
-    href: '/blog/smart-infrastructure-future',
-    author: { name: 'Sarah Williams' },
-  },
-  {
-    title: 'Upskilling Teams for Green Technology Adoption',
-    excerpt: 'Practical strategies for training your workforce on sustainable technologies and environmental best practices.',
-    category: 'Training',
-    date: 'December 20, 2025',
-    readTime: '9 min',
-    image: '/images/blog-5.jpg',
-    href: '/blog/upskilling-green-technology',
-    author: { name: 'Sarah Williams' },
-  },
-  {
-    title: 'Carbon Footprint Reduction in Industrial Operations',
-    excerpt: 'Technical strategies for measuring and reducing carbon emissions in industrial and manufacturing environments.',
-    category: 'GreenTech',
-    date: 'December 15, 2025',
-    readTime: '15 min',
-    image: '/images/blog-6.jpg',
-    href: '/blog/carbon-footprint-reduction',
-    author: { name: 'Marcus Johnson' },
+    image: '/images/blogs/csr.jpg',
+    href: '/blog/sustainable-technology-csr-strategy',
+    author: { name: 'Sylvain Lambert' },
   },
 ];
 
-const categories = ['All', 'GreenTech', 'Industrie', 'Géotechnical', 'Civil engineering', 'Training'];
+const categories = ['All', 'GreenTech', 'Sustainable Tech', 'Industrie', 'Géotechnical', 'Civil engineering', 'Training'];
 
 export default function BlogPage() {
   return (

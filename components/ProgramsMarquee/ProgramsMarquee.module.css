@@ -106,18 +106,24 @@
 }
 
 @media (max-width: 768px) {
+  .desktopOnly {
+    display: none;
+  }
+  
   .marqueeContainer {
     height: 400px;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xl);
+    padding: 0 var(--spacing-lg);
   }
 
   .logoCard {
-    width: 120px;
-    height: 90px;
-    padding: var(--spacing-md);
+    width: 140px;
+    height: 100px;
+    padding: var(--spacing-sm);
   }
 
-  .logoText {
-    font-size: var(--font-size-base);
+  .logo {
+    max-width: 100px;
+    max-height: 70px;
   }
 }

@@ -1,4 +1,5 @@
 import styles from './ClientLogos.module.css';
+import Image from 'next/image';
 
 interface Client {
   name: string;
@@ -19,8 +20,13 @@ export default function ClientLogos({ clients, title }: ClientLogosProps) {
           {[...clients, ...clients].map((client, index) => (
             <div key={`${client.name}-${index}`} className={styles.logo}>
               {client.logo ? (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={client.logo} alt={client.name} />
+                <Image 
+                  src={client.logo} 
+                  alt={client.name}
+                  width={120}
+                  height={60}
+                  className={styles.logoImage}
+                />
               ) : (
                 <span className={styles.placeholder}>{client.name}</span>
               )}

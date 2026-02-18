@@ -114,6 +114,173 @@ const articles = [
       { id: 'future-trends', title: 'Future Trends' },
     ],
   },
+  {
+    slug: 'digital-product-passport-circularity-sustainability',
+    title: 'Digital Product Passport: A Pathway to Circularity and Sustainability',
+    excerpt: 'Discover how Digital Product Passports (DPP) are revolutionizing manufacturing by enhancing transparency, traceability, and sustainability throughout the product lifecycle.',
+    category: 'GreenTech',
+    date: 'February 18, 2026',
+    readTime: '15 min',
+    image: '/images/blogs/dpp.jpg',
+    author: {
+      name: 'Foivos Psarommatis',
+      role: 'Research Expert',
+      avatar: '/images/team/avatar-3.webp',
+    },
+    content: `
+      <p class="lead">The Digital Product Passport (DPP) represents a transformative approach to product lifecycle management, offering unprecedented transparency and traceability while advancing circular economy principles in modern manufacturing.</p>
+
+      <h2 id="understanding-dpp">Understanding Digital Product Passports</h2>
+      <p>A Digital Product Passport (DPP) is a centralized data storage system that aggregates key information across a product's entire lifecycle. From manufacturing to disposal, DPPs enhance transparency, traceability, circularity, and sustainability while meeting the specific information needs of various stakeholders including manufacturers, distributors, regulators, and end-users.</p>
+      <p>The European Commission has proposed implementing DPPs in the European Single Market as part of its Green Deal, promoting circular business practices that reduce CO2 emissions and maximize material efficiency.</p>
+
+      <h2 id="key-components">Key Components and Architecture</h2>
+      <p>The DPP model encompasses six critical aspects:</p>
+      <ul>
+        <li><strong>Connectivity Types:</strong> Local, cloud-based, or hybrid solutions for data access and storage</li>
+        <li><strong>Data Update Frequency:</strong> Real-time, scheduled, or event-driven data synchronization</li>
+        <li><strong>Product Lifecycle Integration:</strong> Comprehensive coverage from manufacturing to recycling</li>
+        <li><strong>Stakeholder Management:</strong> Role-based access controls for different actors in the value chain</li>
+        <li><strong>Data Granularity:</strong> Configurable levels of detail based on business requirements</li>
+        <li><strong>Access Methods:</strong> Multiple interfaces including QR codes, RFID, and web platforms</li>
+      </ul>
+
+      <h2 id="data-categories">Essential Data Categories</h2>
+      <p>DPPs organize information into seven distinct categories, each serving specific stakeholder needs:</p>
+      <ul>
+        <li><strong>Material Data:</strong> Comprehensive information about materials, specifications, and quantities</li>
+        <li><strong>Environmental Data:</strong> Carbon footprint, energy consumption, and environmental impact metrics</li>
+        <li><strong>Manufacturing Data:</strong> Production processes, quality control, and operational parameters</li>
+        <li><strong>Value Network Data:</strong> Supply chain information, logistics, and partner data</li>
+        <li><strong>Maintenance Data:</strong> Service history, repairs, and performance monitoring</li>
+        <li><strong>Circularity Data:</strong> Reuse protocols, recycling procedures, and end-of-life guidance</li>
+        <li><strong>End User Data:</strong> Usage instructions, safety information, and customer feedback</li>
+      </ul>
+
+      <h2 id="implementation-benefits">Implementation Benefits</h2>
+      <p>Organizations implementing DPPs can expect significant advantages across multiple dimensions:</p>
+      <blockquote>
+        <p>"The most successful DPP implementations are those that align environmental goals with business objectives, creating value for both the company and the planet while enhancing operational efficiency."</p>
+      </blockquote>
+      <p>Key benefits include enhanced supply chain transparency, improved recycling processes, reduced regulatory compliance costs, and strengthened customer trust through product authenticity verification.</p>
+
+      <h2 id="challenges-solutions">Challenges and Solutions</h2>
+      <p>While DPPs offer tremendous potential, implementation challenges must be addressed:</p>
+      <ul>
+        <li><strong>Data Privacy and Security:</strong> Implement robust encryption and access controls</li>
+        <li><strong>System Integration:</strong> Develop APIs and standardized data formats for seamless connectivity</li>
+        <li><strong>Stakeholder Adoption:</strong> Provide clear value propositions and training programs</li>
+        <li><strong>Cost Management:</strong> Start with pilot projects and scale gradually</li>
+        <li><strong>Standardization:</strong> Participate in industry consortiums and follow emerging regulations</li>
+      </ul>
+
+      <h2 id="future-outlook">Future Outlook and Applications</h2>
+      <p>The future of DPPs is closely tied to emerging regulatory frameworks, particularly the EU's Ecodesign for Sustainable Products Regulation (ESPR) and Circular Economy Action Plan. As these initiatives mature, DPPs will become essential tools for:</p>
+      <ul>
+        <li>Compliance with environmental regulations</li>
+        <li>Supply chain risk management</li>
+        <li>Consumer transparency and engagement</li>
+        <li>Circular business model innovation</li>
+        <li>Digital twin integration for predictive analytics</li>
+      </ul>
+      <p>Companies that invest in DPP technology today will be better positioned to meet tomorrow's sustainability challenges and capitalize on the circular economy transition.</p>
+    `,
+    tableOfContents: [
+      { id: 'understanding-dpp', title: 'Understanding Digital Product Passports' },
+      { id: 'key-components', title: 'Key Components and Architecture' },
+      { id: 'data-categories', title: 'Essential Data Categories' },
+      { id: 'implementation-benefits', title: 'Implementation Benefits' },
+      { id: 'challenges-solutions', title: 'Challenges and Solutions' },
+      { id: 'future-outlook', title: 'Future Outlook and Applications' },
+    ],
+  },
+  {
+    slug: 'sustainable-technology-csr-strategy',
+    title: 'Sustainable Technology: Putting Technology at the Heart of Your CSR Strategy',
+    excerpt: 'Learn how to integrate sustainable technology practices into your CSR strategy with PwC\'s comprehensive approach to responsible digital transformation.',
+    category: 'Sustainable Tech',
+    date: 'February 17, 2026',
+    readTime: '12 min',
+    image: '/images/blogs/csr.jpg',
+    author: {
+      name: 'Sylvain Lambert',
+      role: 'Sustainability Partner at PwC',
+      avatar: '/images/team/avatar-4.webp',
+    },
+    content: `
+      <p class="lead">In an era where digital transformation and sustainability converge, technology becomes both a challenge and a solution for corporate social responsibility. Organizations must navigate this dual nature to create positive impact while driving business performance.</p>
+
+      <h2 id="digital-sustainability-imperative">The Digital Sustainability Imperative</h2>
+      <p>Digital technologies currently account for approximately 5% of global greenhouse gas emissions, yet they also offer unprecedented opportunities to accelerate sustainability transformations across all sectors. This paradox requires a nuanced approach that maximizes technology's positive potential while minimizing its environmental footprint.</p>
+      <p>The integration of sustainability concerns into business practices has become essential, supported by regulatory frameworks and growing stakeholder expectations for transparent, responsible operations.</p>
+
+      <h2 id="four-step-approach">The Four-Step Approach to Sustainable Tech</h2>
+      <p>Our experience shows that successful appropriation and improvement of technology's environmental and social impact follows a structured methodology:</p>
+
+      <h3>1. Awareness and Education</h3>
+      <p>Building understanding among leadership and IT teams about the environmental and social impacts of digital technologies, market trends, and available action levers. This foundation enables informed decision-making and strategic planning.</p>
+
+      <h3>2. Impact Assessment</h3>
+      <p>Comprehensive evaluation of your organization's digital footprint, including energy consumption, carbon emissions, and resource utilization across your technology stack. This baseline measurement is crucial for setting realistic improvement targets.</p>
+
+      <h3>3. Strategy Development</h3>
+      <p>Structuring a comprehensive responsible digital approach that aligns with your broader CSR objectives. This includes governance frameworks, policy development, and integration with existing sustainability initiatives.</p>
+
+      <h3>4. Implementation and Deployment</h3>
+      <p>Executing Green IT initiatives through concrete action plans, including infrastructure optimization, sustainable software development practices, and circular economy principles applied to technology assets.</p>
+
+      <h2 id="tech-for-sustainability">Tech for Sustainability: Beyond Green IT</h2>
+      <p>While Green IT focuses on reducing technology's environmental impact, "Tech for Sustainability" leverages digital solutions to advance broader sustainability goals:</p>
+
+      <h3>IT4Green & IT4Good</h3>
+      <ul>
+        <li><strong>Decarbonization Support:</strong> Digital technologies that enable emissions reduction across operations, such as smart energy management systems and optimization algorithms</li>
+        <li><strong>Social Impact Enhancement:</strong> Technology solutions that advance social equity, accessibility, and community engagement</li>
+        <li><strong>Operational Efficiency:</strong> IoT sensors, AI analytics, and automation that reduce resource consumption while improving performance</li>
+      </ul>
+
+      <h3>Extra-Financial Data Management</h3>
+      <p>Implementing robust systems for collecting, analyzing, and reporting sustainability metrics. This includes selecting appropriate measurement tools, establishing data governance frameworks, and ensuring compliance with emerging disclosure requirements.</p>
+
+      <h2 id="industry-specific-considerations">Industry-Specific Considerations</h2>
+      <p>Technology companies face unique challenges and opportunities in sustainable technology implementation:</p>
+      <blockquote>
+        <p>"Technology without energy means nothing; digital is a formidable catalyst for sustainable transformations. We invest massively in both domains because CSR commitments are at the heart of our roadmap."</p>
+        <cite>— Sylvain Lambert, Sustainability Partner, PwC France and Maghreb</cite>
+      </blockquote>
+      <ul>
+        <li><strong>Strategic CSR Positioning:</strong> Integrating sustainability into all organizational dimensions and market positioning</li>
+        <li><strong>Product Innovation:</strong> Developing new products and services with embedded sustainability features</li>
+        <li><strong>Environmental Analysis:</strong> Comprehensive lifecycle assessments of technologies, products, and services</li>
+      </ul>
+
+      <h2 id="implementation-tools">Implementation Tools and Methodologies</h2>
+      <p>Successful sustainable technology initiatives require sophisticated measurement and management tools:</p>
+      <ul>
+        <li><strong>Carbon Cockpit:</strong> Real-time monitoring and management of IT infrastructure carbon footprint</li>
+        <li><strong>Environmental Footprint Insights:</strong> Transportation and logistics impact tracking and optimization</li>
+        <li><strong>Procurement Sustainability Tracker:</strong> Supply chain sustainability performance monitoring</li>
+        <li><strong>Lifecycle Assessment Tools:</strong> Comprehensive environmental impact analysis across product lifecycles</li>
+      </ul>
+
+      <h2 id="building-ecosystem">Building a Sustainable Tech Ecosystem</h2>
+      <p>Success in sustainable technology requires collaboration across stakeholder networks. This includes partnerships with technology vendors, participation in industry consortiums, and engagement with regulatory bodies to shape emerging standards.</p>
+      <p>Organizations should leverage existing partnerships and explore new alliances that amplify their sustainability impact while sharing costs and risks associated with innovation.</p>
+
+      <h2 id="measuring-success">Measuring Success and Continuous Improvement</h2>
+      <p>Establishing clear metrics and KPIs is essential for tracking progress and demonstrating value. Key performance indicators should encompass both environmental outcomes (energy reduction, emissions avoidance) and business benefits (cost savings, risk mitigation, stakeholder satisfaction).</p>
+      <p>Regular assessment and iteration ensure that sustainable technology initiatives remain aligned with evolving business needs and regulatory requirements while maximizing positive impact.</p>
+    `,
+    tableOfContents: [
+      { id: 'digital-sustainability-imperative', title: 'The Digital Sustainability Imperative' },
+      { id: 'four-step-approach', title: 'The Four-Step Approach to Sustainable Tech' },
+      { id: 'tech-for-sustainability', title: 'Tech for Sustainability: Beyond Green IT' },
+      { id: 'industry-specific-considerations', title: 'Industry-Specific Considerations' },
+      { id: 'implementation-tools', title: 'Implementation Tools and Methodologies' },
+      { id: 'building-ecosystem', title: 'Building a Sustainable Tech Ecosystem' },
+      { id: 'measuring-success', title: 'Measuring Success and Continuous Improvement' },
+    ],
+  },
 ];
 
 export async function generateStaticParams() {

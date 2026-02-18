@@ -54,30 +54,6 @@ const stats = [
   { value: '3', suffix: '', label: 'Active R&D Tracks' },
 ];
 
-
-const team = [
-  {
-    name: 'David Anderson',
-    role: 'CEO & Founder',
-    bio: '15+ years in technology leadership',
-  },
-  {
-    name: 'Lisa Chen',
-    role: 'CTO',
-    bio: 'Expert in scalable architecture',
-  },
-  {
-    name: 'Marcus Johnson',
-    role: 'Head of Engineering',
-    bio: 'Full-stack development specialist',
-  },
-  {
-    name: 'Sarah Williams',
-    role: 'Head of Design',
-    bio: 'UX/UI and product design expert',
-  },
-];
-
 export default function AboutPage() {
   return (
     <>

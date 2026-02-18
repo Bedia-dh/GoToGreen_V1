@@ -80,15 +80,23 @@
 
 .processStep {
   text-align: center;
-  padding: var(--spacing-xl);
+  padding: var(--spacing-2xl);
+  position: relative;
 }
 
 .stepNumber {
-  display: inline-block;
-  font-size: var(--font-size-4xl);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-extrabold);
-  color: var(--color-accent);
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
   margin-bottom: var(--spacing-lg);
+  font-family: 'Times New Roman', serif;
 }
 
 .processStep h3 {

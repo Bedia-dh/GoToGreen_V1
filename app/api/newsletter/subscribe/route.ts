@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, readFile, mkdir } from 'fs/promises';
 import path from 'path';
+import { newsletterRateLimit, getClientIP } from '@/lib/rate-limit';
+import emailjs from '@emailjs/nodejs';
 
 interface Subscriber {
   email: string;
@@ -38,8 +40,50 @@ function isValidEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
+async function sendAdminNotification(subscriberEmail: string, isResubscription = false): Promise<void> {
+  try {
+    const subscriberName = subscriberEmail.split('@')[0];
+    const subscriptionDate = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+    
+    await emailjs.send(
+      process.env.EMAILJS_SERVICE_ID!,
+      process.env.EMAILJS_SUBSCRIPTION_NOTIFICATION_TEMPLATE_ID!,
+      {
+        subscriber_email: subscriberEmail,
+        subscriber_name: subscriberName,
+        subscription_date: subscriptionDate,
+        subscription_type: isResubscription ? 'Resubscription' : 'New Subscription',
+        admin_email: process.env.ADMIN_NOTIFICATION_EMAIL || process.env.CONTACT_RECIPIENT_EMAIL,
+      },
+      {
+        publicKey: process.env.EMAILJS_PUBLIC_KEY!,
+        privateKey: process.env.EMAILJS_PRIVATE_KEY!,
+      }
+    );
+  } catch (error) {
+    // Don't throw error - subscription should still succeed even if notification fails
+  }
+}
+    
+
+
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting check
+    const clientIP = getClientIP(request);
+    if (!newsletterRateLimit.isAllowed(clientIP)) {
+      return NextResponse.json(
+        { error: 'Too many subscription attempts. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const { email } = await request.json();
 
     // Validate email
@@ -67,6 +111,10 @@ export async function POST(request: NextRequest) {
         existingSubscriber.status = 'active';
         existingSubscriber.subscribedAt = new Date().toISOString();
         await saveSubscribers(subscribers);
+        
+        // Send admin notification for resubscription
+        await sendAdminNotification(email, true);
+        
         return NextResponse.json(
           { message: 'Welcome back! You have been resubscribed to our newsletter.' },
           { status: 200 }
@@ -83,6 +131,9 @@ export async function POST(request: NextRequest) {
 
     subscribers.push(newSubscriber);
     await saveSubscribers(subscribers);
+
+    // Send admin notification for new subscription
+    await sendAdminNotification(email, false);
 
     return NextResponse.json(
       { message: 'Successfully subscribed! You will receive updates about our latest blog posts.' },
