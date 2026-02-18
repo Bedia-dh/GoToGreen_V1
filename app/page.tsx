@@ -11,6 +11,7 @@ import ClientLogos from '@/components/ClientLogos';
 import FAQ from '@/components/FAQ';
 import CTABanner from '@/components/CTABanner';
 import SlidingCards from '@/components/lightswind/sliding-cards';
+import ExpandableText from '@/components/ExpandableText';
 
 const services = [
   {
@@ -245,11 +246,10 @@ export default function Home() {
               </div>
               <div className={styles.pass2greenText}>
                 <h3>Pass2Green - Our Flagship Project</h3>
-                <p>
-                  Pass2Green is GoToGreen’s flagship project, designed to help organizations move from sustainability intent to measurable impact. Through DPP generation, Product Carbon Footprint Calculator and AI environmental consultancy. 
-                  It’s a digital ecosystem that simplifies environmental responsibility by turning complex sustainability requirements into clear, actionable steps; from carbon awareness to responsible operations and compliance readiness.
-                  Pass2Green operates as an independent platform with its own dedicated website, while remaining fully aligned with GoToGreen’s mission: making sustainability practical, scalable, and accessible for businesses and institutions.
-                </p>
+                <ExpandableText
+                  preview="Pass2Green is GoToGreen's flagship project, designed to help organizations move from sustainability intent to measurable impact. Through DPP generation, Product Carbon Footprint Calculator and AI environmental consultancy."
+                  rest="It's a digital ecosystem that simplifies environmental responsibility by turning complex sustainability requirements into clear, actionable steps; from carbon awareness to responsible operations and compliance readiness. Pass2Green operates as an independent platform with its own dedicated website, while remaining fully aligned with GoToGreen's mission: making sustainability practical, scalable, and accessible for businesses and institutions."
+                />
                 <div className={styles.pass2greenCtas}>
                   <InteractiveHoverButton 
                     href="https://pass2green.vercel.app/" 
