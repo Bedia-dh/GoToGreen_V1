@@ -61,7 +61,6 @@ export default function CookieBanner() {
   return (
     <div className={styles.banner} role="dialog" aria-label="Cookie consent">
       <div className={styles.header}>
-        <span className={styles.cookieIcon}>🍪</span>
         <h3>Cookie Preferences</h3>
       </div>
 

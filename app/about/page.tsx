@@ -73,19 +73,15 @@ export default function AboutPage() {
             <div className={styles.missionText}>
               <h2>Our Mission</h2>
               <p className={styles.missionStatement}>
-                To empower businesses with technology solutions that drive growth, 
-                efficiency, and lasting competitive advantage.
+                GoToGreen’s mission is to accelerate the transition toward a more sustainable economy by empowering companies with technology,
+                data, and strategic guidance to measure, manage, and reduce their environmental impact.
               </p>
               <p>
-                Founded with a vision to bridge the gap between complex technology 
-                and real business value, GoToGreen has grown into a trusted partner 
-                for organizations seeking digital transformation.
+                We aim to make sustainability practical, measurable, and value-driven transforming regulatory and environmental challenges into opportunities for innovation, competitiveness,
+                and long-term growth.
               </p>
               <p>
-                We believe that great technology should be accessible, sustainable, 
-                and built to last. Our approach combines technical excellence with 
-                deep understanding of business challenges, delivering solutions that 
-                make a real difference.
+                At GoToGreen, we believe sustainability should not be a constraint, but a strategic advantage.
               </p>
             </div>
             <div className={styles.serviecImage}>

@@ -40,6 +40,21 @@ export default function Hero({
   const [showActions, setShowActions] = useState(false);
 
   useEffect(() => {
+    // Check if animations have already been played in this session
+    const animationsPlayed = sessionStorage.getItem('hero-animations-played');
+    
+    if (animationsPlayed) {
+      // Skip animations and show everything immediately
+      setDisplayedTitle(title);
+      setDisplayedDescription(description || '');
+      setShowContent(true);
+      setShowActions(true);
+      return;
+    }
+
+    // Mark that animations are being played (to prevent re-runs during this effect)
+    sessionStorage.setItem('hero-animations-played', 'true');
+    
     // Wait 1.5 seconds before starting animations
     const initialDelay = setTimeout(() => {
       setShowContent(true);

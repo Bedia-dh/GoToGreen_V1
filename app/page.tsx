@@ -163,7 +163,6 @@ export default function Home() {
       <Hero
         title="Digital Solutions with Purpose"
         subtitle="Innovation & Efficiency"
-       //description="We deliver cutting-edge web, mobile, and AI solutions that drive growth and operational excellence. Built with precision, designed for impact."
         primaryCta={{ text: 'Start Your Project', href: '/contact' }}
         secondaryCta={{ text: 'View Our Work', href: '/case-studies' }}
         videoSrc="/video/hero_video - Made with Clipchamp.mp4"

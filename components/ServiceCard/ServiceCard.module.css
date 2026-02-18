@@ -149,7 +149,6 @@
 /* Mobile Responsive Improvements */
 @media (max-width: 768px) {
   .overlay {
-    opacity: 0.3;
     background: linear-gradient(
       135deg,
       rgba(15, 61, 35, 0.85) 0%,

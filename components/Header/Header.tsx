@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
 import Image from 'next/image';
@@ -26,15 +26,32 @@ const navigation = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
 
+  // Detect if it's a touch device (mobile/tablet)
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobileDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const handleEnter = () => {
+    if (isMobileDevice) return; // Disable hover on mobile
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setIsServicesOpen(true);
   };
 
   const handleLeave = () => {
+    if (isMobileDevice) return; // Disable hover on mobile
     dropdownTimeout.current = setTimeout(() => setIsServicesOpen(false), 120);
+  };
+
+  const handleServicesClick = () => {
+    setIsServicesOpen((open) => !open);
   };
 
   return (
@@ -62,7 +79,7 @@ export default function Header() {
             >
               <button
                 className={`${styles.navLink} ${styles.dropdownTrigger} ${isServicesOpen ? styles.dropdownOpen : ''}`}
-                onClick={() => setIsServicesOpen((open) => !open)}
+                onClick={handleServicesClick}
                 aria-expanded={isServicesOpen}
                 aria-haspopup="true"
               >

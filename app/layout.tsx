@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   title: "GoToGreen | Technology Solutions for Modern Business",
   description: "Delivering innovative technology solutions with a commitment to efficiency and responsible engineering. Web, Mobile, AI, DevOps & Training services.",
   keywords: "technology solutions, web development, mobile apps, AI solutions, DevOps, training, software development",
+  icons: {
+    icon: [
+      { url: '/Frame5.png', sizes: 'any' },
+      { url: '/Frame5.png', sizes: '32x32', type: 'image/png' },
+      { url: '/Frame5.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: { url: '/Frame5.png', sizes: '180x180', type: 'image/png' },
+  },
 };
 
 export default function RootLayout({
