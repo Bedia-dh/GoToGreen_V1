@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, readFile, mkdir } from 'fs/promises';
-import path from 'path';
 import { newsletterRateLimit, getClientIP } from '@/lib/rate-limit';
 import emailjs from '@emailjs/nodejs';
 
@@ -10,30 +8,8 @@ interface Subscriber {
   status: 'active' | 'unsubscribed';
 }
 
-const SUBSCRIBERS_FILE = path.join(process.cwd(), 'data', 'subscribers.json');
-
-async function ensureDataDirectory() {
-  const dataDir = path.join(process.cwd(), 'data');
-  try {
-    await mkdir(dataDir, { recursive: true });
-  } catch (error) {
-    // Directory already exists
-  }
-}
-
-async function getSubscribers(): Promise<Subscriber[]> {
-  try {
-    const data = await readFile(SUBSCRIBERS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    return [];
-  }
-}
-
-async function saveSubscribers(subscribers: Subscriber[]): Promise<void> {
-  await ensureDataDirectory();
-  await writeFile(SUBSCRIBERS_FILE, JSON.stringify(subscribers, null, 2));
-}
+// For local development only - won't work on Vercel
+const subscribersCache: Subscriber[] = [];
 
 function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -67,12 +43,10 @@ async function sendAdminNotification(subscriberEmail: string, isResubscription =
       }
     );
   } catch (error) {
-    // Don't throw error - subscription should still succeed even if notification fails
+    console.error('Failed to send admin notification:', error);
+    throw error; // Re-throw to ensure we know if notification fails
   }
 }
-    
-
-
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting check
@@ -94,46 +68,35 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get existing subscribers
-    const subscribers = await getSubscribers();
+    // Check in-memory cache (for development) - production relies on email notifications
+    const existingSubscriber = subscribersCache.find(sub => sub.email.toLowerCase() === email.toLowerCase());
 
-    // Check if email already exists
-    const existingSubscriber = subscribers.find(sub => sub.email.toLowerCase() === email.toLowerCase());
-
-    if (existingSubscriber) {
-      if (existingSubscriber.status === 'active') {
-        return NextResponse.json(
-          { error: 'This email is already subscribed to our newsletter' },
-          { status: 409 }
-        );
-      } else {
-        // Reactivate unsubscribed user
-        existingSubscriber.status = 'active';
-        existingSubscriber.subscribedAt = new Date().toISOString();
-        await saveSubscribers(subscribers);
-        
-        // Send admin notification for resubscription
-        await sendAdminNotification(email, true);
-        
-        return NextResponse.json(
-          { message: 'Welcome back! You have been resubscribed to our newsletter.' },
-          { status: 200 }
-        );
-      }
+    if (existingSubscriber && existingSubscriber.status === 'active') {
+      return NextResponse.json(
+        { error: 'This email is already subscribed to our newsletter' },
+        { status: 409 }
+      );
     }
 
-    // Add new subscriber
+    // Add to cache (memory only - for current session)
     const newSubscriber: Subscriber = {
       email: email.toLowerCase(),
       subscribedAt: new Date().toISOString(),
       status: 'active',
     };
 
-    subscribers.push(newSubscriber);
-    await saveSubscribers(subscribers);
+    subscribersCache.push(newSubscriber);
 
-    // Send admin notification for new subscription
-    await sendAdminNotification(email, false);
+    // Send admin notification - this is the permanent record on production
+    try {
+      await sendAdminNotification(email, existingSubscriber ? true : false);
+    } catch (emailError) {
+      console.error('Failed to send notification email:', emailError);
+      return NextResponse.json(
+        { error: 'Failed to complete subscription. Please try again.' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       { message: 'Successfully subscribed! You will receive updates about our latest blog posts.' },

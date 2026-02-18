@@ -51,7 +51,7 @@ const stats = [
   { value: '12', suffix: '+', label: 'Projects Delivered' },
   { value: '20', suffix: '+', label: 'Years Combined Experience' },
   { value: '99', suffix: '%', label: 'Client Satisfaction' },
-  { value: '3', suffix: '', label: 'Active R&D Tracks' },
+  { value: '1', suffix: '', label: 'Active R&D Tracks' },
 ];
 
 export default function AboutPage() {
