@@ -50,7 +50,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 
   // Auto-slide every 4 seconds
   useEffect(() => {
-    const interval = setInterval(next, 3500);
+    const interval = setInterval(next,4500);
     return () => clearInterval(interval);
   }, [next]);
 

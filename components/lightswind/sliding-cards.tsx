@@ -230,14 +230,16 @@ const SlidingCards: React.FC<SlidingCardsProps> = ({
     padding: '32px',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '20px',
     overflow: 'hidden',
     ...(bgClass && gradientStyles[bgClass] ? gradientStyles[bgClass] : { background: 'linear-gradient(to bottom right, #f9a8d4, #fdba74)' }),
   });
 
   const iconContainerStyle: React.CSSProperties = {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   };
 
   const iconBoxStyle: React.CSSProperties = {
@@ -253,7 +255,8 @@ const SlidingCards: React.FC<SlidingCardsProps> = ({
   const contentStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
-    gap: '12px',
+    gap: '10px',
+    textAlign: 'center',
   };
 
   const titleStyle: React.CSSProperties = {
@@ -266,10 +269,10 @@ const SlidingCards: React.FC<SlidingCardsProps> = ({
   };
 
   const descriptionStyle: React.CSSProperties = {
-    fontSize: '0.875rem',
+    fontSize: '0.8rem',
     color: 'rgba(255, 255, 255, 0.9)',
     textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
-    lineHeight: 1.6,
+    lineHeight: 1.5,
     margin: 0,
   };
 

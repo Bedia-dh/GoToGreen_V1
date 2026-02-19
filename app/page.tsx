@@ -66,28 +66,28 @@ const cardItems = [
     icon: <Image src="/images/icons/hand-shake.png" alt="Expertise" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-green-400 to-emerald-600',
     title: "End-to-End Expertise",
-    description: "From idea to deployment and long-term support."
+    description: "We guide your project from initial concept through architecture, development, testing, launch, and ongoing maintenance — so you always have a trusted partner at every stage."
   },
   { 
     id: 2, 
     icon: <Image src="/images/icons/technology (1).png" alt="Technology" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-blue-400 to-indigo-600',
     title: "Advanced Technology",
-    description: "Modern frameworks, automation, and scalable architecture."
+    description: "Built on Next.js, React, Node.js, Python, and cloud-native infrastructure — our stack is engineered for performance, security, and seamless scalability as you grow."
   },
   { 
     id: 3, 
     icon: <Image src="/images/icons/recycle (1).png" alt="Sustainability" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-teal-400 to-cyan-500',
     title: "Sustainability by Design",
-    description: "Eco-efficient development that reduces digital waste."
+    description: "Every solution we build factors in energy efficiency, optimized resource usage, and reduced digital waste — because responsible tech is better tech."
   },
   { 
     id: 4, 
     icon: <Image src="/images/icons/medal.png" alt="Excellence" width={32} height={32} />,
     bgClass: 'bg-gradient-to-br from-purple-400 to-pink-500',
     title: "Client-First Mindset",
-    description: "Solutions aligned to your goals and business needs."
+    description: "Your goals drive every decision. We listen, adapt, and deliver tailored solutions with transparent communication, on-time milestones, and measurable business outcomes."
   },
 ];
 
@@ -166,7 +166,7 @@ export default function Home() {
         subtitle="Innovation & Efficiency"
         primaryCta={{ text: 'Start Your Project', href: '/contact' }}
         secondaryCta={{ text: 'View Our Work', href: '/case-studies' }}
-        videoSrc="/video/hero_video - Made with Clipchamp.mp4"
+        videoSrc="/video/Hero-Video-compression.mp4"
         size="large"
       />
 

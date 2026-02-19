@@ -26,19 +26,20 @@ const caseStudies = [
     href: '/case-studies/nird-navigator',
   },
   {
-    title: 'Carbon Emission Monitoring Platform',
-    category: 'GreenTech',
-    description: 'Real-time carbon tracking system for a manufacturing facility, enabling 30% reduction in emissions through data-driven optimization.',
-    image: '/images/case-study-1.jpg',
-    href: '/case-studies/carbon-monitoring',
-  },
-  {
     title: 'Amphenol Automotive – GEO, AI Search Optimization',
     category: 'SEO & Digital Growth',
     description: 'Complete website restructuring to prepare for AI-driven search engines, transforming a traditional product-centered site into an AI-readable digital ecosystem.',
-    image: '/images/projects/amphenol-automotive.webp',
+    image: '/images/projects/Amphenol-automotive.webp',
     href: '/case-studies/amphenol-automotive',
   },
+  {
+    title: 'Carbon Emission Monitoring Platform',
+    category: 'GreenTech',
+    description: 'Real-time carbon tracking system for a manufacturing facility, enabling 30% reduction in emissions through data-driven optimization.',
+    image: '/images/projects/CO2-emission.webp',
+    href: '/case-studies/carbon-monitoring',
+  },
+
 ];
 
 const categories = ['All', 'GreenTech', 'SEO & Digital Growth', 'Industrie', 'Géotechnical', 'Civil engineering', 'Training'];
